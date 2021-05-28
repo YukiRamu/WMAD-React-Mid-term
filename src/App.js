@@ -1,6 +1,7 @@
 import './App.css';
 import "./component/Home/Home";
 import "./component/LogIn/LogIn";
+import FetchAPI from './component/API/FetchAPI'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <div className="App">
         <header className="App-header">
           <h1>React Mid Term</h1>
+          <FetchAPI/>
         </header>
       </div>
     </>
