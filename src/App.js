@@ -10,6 +10,7 @@ import {
 import Home from "./component/Home/Home";
 import LogIn from "./component/LogIn/LogIn";
 import CheckOut from "./component/CheckOut/CheckOut";
+import FetchAPI from './component/API/FetchAPI'
 
 const App = () => {
   return (
