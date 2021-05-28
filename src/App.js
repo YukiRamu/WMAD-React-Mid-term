@@ -1,22 +1,53 @@
 import './App.css';
-import "./component/Home/Home";
-import "./component/LogIn/LogIn";
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
+
+import Home from "./component/Home/Home";
+import LogIn from "./component/LogIn/LogIn";
+import CheckOut from "./component/CheckOut/CheckOut";
 
 const App = () => {
   return (
     <>
-      <div>
-        <nav>
-          {/* React Router for the navigation bar will be added here */}
-        </nav>
-      </div>
+      {/* React Router : Navbar */}
+      <Router>
+        <div>
+          <header>
+            <h1 className="siteTitle">Website Title / Logo here</h1>
+            <nav className="navBar">
+              <ul>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/login">Log In</Link>
+                </li>
+                <li>
+                  <Link to="/checkout">Check Out</Link>
+                </li>
+              </ul>
+            </nav>
+          </header>
 
-
-      <div className="App">
-        <header className="App-header">
-          <h1>React Mid Term</h1>
-        </header>
-      </div>
+          {/* Router Switch */}
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/login">
+              <LogIn />
+            </Route>
+            <Route path="/checkout">
+              <CheckOut />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     </>
   );
 };
