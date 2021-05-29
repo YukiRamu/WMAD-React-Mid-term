@@ -1,4 +1,5 @@
 import React from 'react';
+import CheckOut from '../CheckOut/CheckOut';
 
 class FetchAPI extends React.Component {
     state = {
@@ -87,7 +88,7 @@ class FetchAPI extends React.Component {
         return (
             <>
                 <div>
-
+                    <CheckOut allProductsList = {this.state.allProducts}/>
                 </div>
             </>
         );
