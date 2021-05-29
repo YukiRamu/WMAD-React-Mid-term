@@ -34,7 +34,6 @@ const App = () => {
               </ul>
             </nav>
           </header>
-
           {/* Router Switch */}
           <Switch>
             <Route exact path="/">
