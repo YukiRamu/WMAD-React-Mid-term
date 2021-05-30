@@ -13,7 +13,31 @@ import CheckOut from "./component/CheckOut/CheckOut";
 import FetchAPI from './component/API/FetchAPI';
 
 const App = () => {
+  
+  //**************************************** */
+  // Below temporarily added to code Home.js
+  //**************************************** */
+  const [allProducts, setAllProducts] = useState([]);
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then(response => {
+        if (response.status !== 200) {
+          console.log(`We have a problem! ${response.status}`);
+        }
+        response.json()
+          .then(data => {
+            console.log("PRODUCTS DATA" + data);
+            setAllProducts(data);
+          });
+      })
+      .catch((error) => {
+        console.log((`Error ${error}`));
+      });
+    return () => {
 
+    };
+  }, []);
+  //**************************************** */
   return (
     <>
       {/* React Router : Navbar */}
@@ -37,9 +61,7 @@ const App = () => {
           </header>
           {/* Router Switch */}
           <Switch>
-            <Route exact path="/" render={() => <Home title="Home" />}>
-
-            </Route>
+            <Route exact path="/" render={() => <Home product={allProducts} />} />
             <Route path="/login">
               <LogIn />
             </Route>
@@ -49,10 +71,6 @@ const App = () => {
           </Switch>
         </div>
       </Router>
-
-      <div>
-        <Home ></Home>
-      </div>
     </>
   );
 };

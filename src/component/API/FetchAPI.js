@@ -6,7 +6,7 @@ class FetchAPI extends React.Component {
         allProducts: [],
         allCategories: [],
         addNewProduct: []
-    }
+    };
 
 
     componentDidMount() {
@@ -20,15 +20,15 @@ class FetchAPI extends React.Component {
                 }
                 response.json()
                     .then(data => {
-                        console.log("PRODUCTS DATA" + data)
+                        console.log("PRODUCTS DATA" + data);
                         this.setState({
                             allProducts: data
                         });
                     });
             })
             .catch((error) => {
-                console.log((`Error ${error}`))
-            })
+                console.log((`Error ${error}`));
+            });
 
         //ALL COTEGORIES API    
 
@@ -39,15 +39,15 @@ class FetchAPI extends React.Component {
                 }
                 response.json()
                     .then(data => {
-                        console.log("CATEGORIES DATA" + data)
+                        console.log("CATEGORIES DATA" + data);
                         this.setState({
                             allCategories: data
                         });
                     });
             })
             .catch((error) => {
-                console.log((`Error ${error}`))
-            })
+                console.log((`Error ${error}`));
+            });
 
         //ADD NEW PRODUCT
 
@@ -69,26 +69,27 @@ class FetchAPI extends React.Component {
                 }
                 response.json()
                     .then(data => {
-                        console.log("NEW PRODUCT DATA" + data)
+                        console.log("NEW PRODUCT DATA" + data);
                         this.setState({
                             addNewProduct: data
                         });
                     });
             })
             .catch((error) => {
-                console.log((`Error ${error}`))
-            })
+                console.log((`Error ${error}`));
+            });
     }
 
     render() {
         console.log(this.state.allProducts);
         console.log(this.state.allCategories);
         console.log(this.state.addNewProduct);
-        
+
         return (
             <>
                 <div>
-                    <CheckOut allProductsList = {this.state.allProducts}/>
+                    <CheckOut allProductsList={this.state.allProducts} />
+                    
                 </div>
             </>
         );
