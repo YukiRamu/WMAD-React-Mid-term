@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,9 +10,10 @@ import {
 import Home from "./component/Home/Home";
 import LogIn from "./component/LogIn/LogIn";
 import CheckOut from "./component/CheckOut/CheckOut";
-import FetchAPI from './component/API/FetchAPI'
+import FetchAPI from './component/API/FetchAPI';
 
 const App = () => {
+
   return (
     <>
       {/* React Router : Navbar */}
@@ -36,8 +37,8 @@ const App = () => {
           </header>
           {/* Router Switch */}
           <Switch>
-            <Route exact path="/">
-              <Home />
+            <Route exact path="/" render={() => <Home title="Home" />}>
+
             </Route>
             <Route path="/login">
               <LogIn />
@@ -48,6 +49,10 @@ const App = () => {
           </Switch>
         </div>
       </Router>
+
+      <div>
+        <Home ></Home>
+      </div>
     </>
   );
 };
