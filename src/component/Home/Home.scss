@@ -5,6 +5,7 @@
     .carousel-item {
       height: 100%;
       .carousel-caption {
+        height: fit-content;
         left: 0;
         width: 50vw;
         top: 50%;
@@ -13,6 +14,10 @@
         padding: 2rem;
         margin-left: 1rem;
         background-color: rgba(0, 0, 0, 0.593);
+        h2 {
+          font-family: 'HCo Chronicle Display',Georgia,Times,'Times New Roman',serif;
+          font-size: 4rem;
+        }
       }
     }
   }

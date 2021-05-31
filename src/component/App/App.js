@@ -27,7 +27,6 @@ const App = () => {
         }
         response.json()
           .then(data => {
-            console.log("PRODUCTS DATA" + data);
             setAllProducts(data);
           });
       })
@@ -43,32 +42,38 @@ const App = () => {
     <>
       {/* React Router : Navbar */}
       <Router>
-          <header>
-            <h1 className="siteTitle">Website Title / Logo here</h1>
-            <nav className="navBar">
-              <ul>
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <Link to="/login">Log In</Link>
-                </li>
-                <li>
-                  <Link to="/checkout">Check Out</Link>
-                </li>
-              </ul>
-            </nav>
-          </header>
-          {/* Router Switch */}
-          <Switch>
-            <Route exact path="/" render={() => <Home product={allProducts} />} />
-            <Route path="/login">
-              <LogIn />
-            </Route>
-            <Route path="/checkout">
-              <CheckOut />
-            </Route>
-          </Switch>
+        <header>
+          <h1 className="siteTitle">Website Title / Logo here</h1>
+          <nav className="navBar">
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/login">Log In</Link>
+              </li>
+              <li>
+                <Link to="/checkout">Check Out</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        {/* Router Switch */}
+        <Switch>
+          {allProducts.length !== 0 ? (
+            <>
+              < Route exact path="/" render={() => <Home product={allProducts} />} />
+              <Route path="/login">
+                <LogIn />
+              </Route>
+              <Route path="/checkout">
+                <CheckOut />
+              </Route>
+            </>
+          ) : (
+            console.log("allProducts not yet ready"))}
+
+        </Switch>
       </Router>
     </>
   );
