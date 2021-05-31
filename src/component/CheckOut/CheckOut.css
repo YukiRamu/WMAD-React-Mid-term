@@ -30,9 +30,9 @@
 }
 
 .product-description{
-    width: 434.28px;
+    width: 423px;
     height: 225px;
-    margin-right: 5rem;
+    margin-right: 4rem;
     text-align: justify;
 }
 
@@ -64,4 +64,29 @@
     height: 14px;
     background-color: gray;
     margin: 1.4rem;
+}
+
+.form-container{
+    margin: 0rem 20rem;
+}
+
+.contactText{
+    display: flex;
+    align-items: center;
+}
+
+.contactInfo{
+    margin-right: 4rem;
+}
+
+.account{
+    font-size: 1rem;
+}
+
+.email-input{
+    width: 31%;
+    height: 2rem;
+    padding: .3rem;
+    font-size: 1rem;
+    border-color: 1px solid lightgray;
 }
