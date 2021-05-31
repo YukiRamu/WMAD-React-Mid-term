@@ -90,6 +90,7 @@ const App = () => {
         </Switch>
       </Router>
       <Footer />
+      
     </>
   );
 };
