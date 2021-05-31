@@ -8,13 +8,13 @@ import {
 } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Home from "./component/Home/Home";
-import LogIn from "./component/LogIn/LogIn";
-import CheckOut from "./component/CheckOut/CheckOut";
-import FetchAPI from './component/API/FetchAPI';
+import Home from "../Home/Home";
+import LogIn from "../LogIn/LogIn";
+import CheckOut from "../CheckOut/CheckOut";
+import FetchAPI from '../API/FetchAPI';
 
 const App = () => {
-  
+
   //**************************************** */
   // Below temporarily added to code Home.js
   //**************************************** */
@@ -43,7 +43,6 @@ const App = () => {
     <>
       {/* React Router : Navbar */}
       <Router>
-        <div>
           <header>
             <h1 className="siteTitle">Website Title / Logo here</h1>
             <nav className="navBar">
@@ -70,7 +69,6 @@ const App = () => {
               <CheckOut />
             </Route>
           </Switch>
-        </div>
       </Router>
     </>
   );

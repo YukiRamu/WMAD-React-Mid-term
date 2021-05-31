@@ -1,3 +1,34 @@
-.title {
-  background-color: blue;
+/* Carousel */
+.heroContentsSection {
+  .carousel-inner {
+    height: 80vh;
+    .carousel-item {
+      height: 100%;
+      .carousel-caption {
+        left: 0;
+        width: 50vw;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: left;
+        padding: 2rem;
+        margin-left: 1rem;
+        background-color: rgba(0, 0, 0, 0.593);
+      }
+    }
+  }
+}
+/* Top Collection */
+.topCollectionSection {
+  .container-fluid {
+    .row {
+      .col {
+        height: 90vh;
+        .topCollectionImg {
+          width: 100%;
+          height: 100%;
+          padding: 2rem;
+        }
+      }
+    }
+  }
 }
