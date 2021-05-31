@@ -6,6 +6,7 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FaSlack } from "react-icons/fa";
 
 
+
 const Footer = () => {
   return (
     <>
