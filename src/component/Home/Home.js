@@ -1,29 +1,24 @@
-//This component is for the homepage of our website
+/*  This component is for the homepage of our website  */
 import React, { useState, useEffect } from "react";
 import "./Home.css";
-import FetchAPI from "../API/FetchAPI";
 import { Carousel, Container, Row, Col } from 'react-bootstrap';
 
-
 const Home = (props) => {
-  console.log("Child component !!!!!!!");
   console.log(props);
 
   const [topCollection, setTopCollection] = useState([]);
 
-  //Create a fake array for each contents
   //Top Collection - randomly show four items
   let copiedProps = props.product.slice();
   let selectedTopPicks = [];
   const getTopCollection = () => {
-    console.log("executing");
     while ((selectedTopPicks.length < 4) && (copiedProps.length > 0)) {
       selectedTopPicks.push(copiedProps[Math.floor(Math.random() * copiedProps.length)]);//randomly push 
       copiedProps.splice(Math.floor(Math.random() * copiedProps.length), 1); //delete the target
+      console.log(copiedProps);
     }
     console.log(selectedTopPicks);
     setTopCollection(selectedTopPicks); //assign, not callback function
-    console.log(topCollection);
   };
 
   useEffect(() => {
@@ -40,7 +35,7 @@ const Home = (props) => {
           fade={true}
           interval={3000}
           autoPlay={true}
-          controls={false}
+          controls={true}
           indicators={true}>
 
           <Carousel.Item
@@ -84,31 +79,103 @@ const Home = (props) => {
               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione dolorum pariatur aut sunt dolore vel unde vitae dolores, ipsa eligendi minus adipisci optio recusandae nam itaque consectetur dignissimos beatae velit.</p>
             </Carousel.Caption>
           </Carousel.Item>
+
+          <Carousel.Item
+            style={{
+              background: "url(./img/heroContent4.jpg)",
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat"
+            }}>
+            <Carousel.Caption>
+              <p>Lorem ipsum dolor sit amet</p>
+              <h2>Jewelery collections</h2>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione dolorum pariatur aut sunt dolore vel unde vitae dolores, ipsa eligendi minus adipisci optio recusandae nam itaque consectetur dignissimos beatae velit.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+
+          <Carousel.Item
+            style={{
+              background: "url(./img/heroContent5.jpg)",
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat"
+            }}>
+            <Carousel.Caption>
+              <p>Lorem ipsum dolor sit amet</p>
+              <h2>Stylish Electronics</h2>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione dolorum pariatur aut sunt dolore vel unde vitae dolores, ipsa eligendi minus adipisci optio recusandae nam itaque consectetur dignissimos beatae velit.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+
         </Carousel>
       </section>
 
       {/* Top Collection */}
       <section className="topCollectionSection">
-        <h2>Top Picks</h2>
-
         {topCollection.length !== 0 ? (
           <Container fluid>
             <Row>
-              <Col>
+              <Col
+                className="titleCol"
+                style={{
+                  background: "url(./img/topCollection2.jpg)",
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat"
+                }}>
+                <div className="collectionTitleContainer">
+                  <div className="collectionTitle">
+                    <h2>Top Deals</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum doloribus temporibus ut neque tenetur, esse asperiores aut accusantium optio, eligendi autem explicabo quidem laboriosam distinctio iste! Incidunt deleniti deserunt alias!</p>
+                  </div>
+                </div>
+              </Col>
+
+              <Col className="imgCol">
+                <h4>{topCollection[0].title}</h4>
                 <img src={topCollection[0].image} alt="item1" className="topCollectionImg" />
+                <div className="imgHover">
+                  <p>{topCollection[0].description}</p>
+                  <button>View more</button>
+                </div>
               </Col>
-              <Col>
+            </Row>
+
+            <Row>
+              <Col className="imgCol">
+                <h4>{topCollection[1].title}</h4>
                 <img src={topCollection[1].image} alt="item2" className="topCollectionImg" />
+                <div className="imgHover">
+                  <p>{topCollection[1].description}</p>
+                  <button>View more</button>
+                </div>
               </Col>
-              <Col>
-                <img src={topCollection[2].image} alt="item1" className="topCollectionImg" />
+              <Col className="imgCol">
+                <h4>{topCollection[2].title}</h4>
+                <img src={topCollection[2].image} alt="item3" className="topCollectionImg" />
+                <div className="imgHover">
+                  <p>{topCollection[2].description}</p>
+                  <button>View more</button>
+                </div>
               </Col>
-              <Col>
-                <img src={topCollection[3].image} alt="item2" className="topCollectionImg" />
+              <Col className="imgCol">
+                <h4>{topCollection[3].title}</h4>
+                <img src={topCollection[3].image} alt="item4" className="topCollectionImg" />
+                <div className="imgHover">
+                  <p>{topCollection[3].description}</p>
+                  <button>View more</button>
+                </div>
               </Col>
             </Row>
           </Container>
-        ) : (console.log("length 0"))}
+        ) : ""}
+      </section>
+
+      {/* Brand Highlight */}
+      <section className="brandHighlight">
+        <img src="" alt="" />
+
       </section>
 
     </>
