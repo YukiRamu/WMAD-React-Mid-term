@@ -11,32 +11,46 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "../Home/Home";
 import LogIn from "../LogIn/LogIn";
 import CheckOut from "../CheckOut/CheckOut";
-import FetchAPI from '../API/FetchAPI';
+import Footer from "../Layout/Footer";
+import AllProducts from '../API/AllProducts';
 
 const App = () => {
+  const [allProducts, setProduct] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const fetchedData = await AllProducts();
+      console.log("fetchedData is", fetchedData);
+      setProduct(fetchedData); //set state hook
+      console.log(allProducts);
+    })();
+
+    return () => {
+    };
+  }, []);
 
   //**************************************** */
   // Below temporarily added to code Home.js
   //**************************************** */
-  const [allProducts, setAllProducts] = useState([]);
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then(response => {
-        if (response.status !== 200) {
-          console.log(`We have a problem! ${response.status}`);
-        }
-        response.json()
-          .then(data => {
-            setAllProducts(data);
-          });
-      })
-      .catch((error) => {
-        console.log((`Error ${error}`));
-      });
-    return () => {
+  // const [allProducts, setAllProducts] = useState([]);
+  // useEffect(() => {
+  //   fetch("https://fakestoreapi.com/products")
+  //     .then(response => {
+  //       if (response.status !== 200) {
+  //         console.log(`We have a problem! ${response.status}`);
+  //       }
+  //       response.json()
+  //         .then(data => {
+  //           setAllProducts(data);
+  //         });
+  //     })
+  //     .catch((error) => {
+  //       console.log((`Error ${error}`));
+  //     });
+  //   return () => {
 
-    };
-  }, []);
+  //   };
+  // }, []);
   //**************************************** */
   return (
     <>
@@ -75,6 +89,7 @@ const App = () => {
 
         </Switch>
       </Router>
+      <Footer />
     </>
   );
 };
