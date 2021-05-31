@@ -6,21 +6,31 @@ import { Carousel, Container, Row, Col } from 'react-bootstrap';
 
 
 const Home = (props) => {
+  console.log("Child component !!!!!!!");
   console.log(props);
-  const [topCollection, setTopCollection] = useState();
+
+  const [topCollection, setTopCollection] = useState([]);
 
   //Create a fake array for each contents
-  //Top Collection - random show items
+  //Top Collection - randomly show four items
+  let copiedProps = props.product.slice();
+  let selectedTopPicks = [];
   const getTopCollection = () => {
-    let topCollection = [];
-    let randomId = Math.floor(Math.random() * props.product.length);
-    console.log(randomId);
-    for (let i = 0; i < props.product.length; i++) {
-      topCollection.push(props.product[i]);
+    console.log("executing");
+    while ((selectedTopPicks.length < 4) && (copiedProps.length > 0)) {
+      selectedTopPicks.push(copiedProps[Math.floor(Math.random() * copiedProps.length)]);//randomly push 
+      copiedProps.splice(Math.floor(Math.random() * copiedProps.length), 1); //delete the target
     }
-    console.log("topCollection is ", topCollection);
+    console.log(selectedTopPicks);
+    setTopCollection(selectedTopPicks); //assign, not callback function
+    console.log(topCollection);
   };
 
+  useEffect(() => {
+    getTopCollection();
+    return () => {
+    };
+  }, []);
 
   return (
     <>
@@ -79,13 +89,23 @@ const Home = (props) => {
 
       {/* Top Collection */}
       <section className="topCollectionSection">
-        <h2>Top Collection</h2>
+        <h2>Top Picks</h2>
 
-        {props.product.length !== 0 ? (
+        {topCollection.length !== 0 ? (
           <Container fluid>
             <Row>
-              <Col> <img src={props.product[0].image} alt="item1" className="topCollectionImg" /></Col>
-              <Col> <img src={props.product[0].image} alt="item1" className="topCollectionImg" /></Col>
+              <Col>
+                <img src={topCollection[0].image} alt="item1" className="topCollectionImg" />
+              </Col>
+              <Col>
+                <img src={topCollection[1].image} alt="item2" className="topCollectionImg" />
+              </Col>
+              <Col>
+                <img src={topCollection[2].image} alt="item1" className="topCollectionImg" />
+              </Col>
+              <Col>
+                <img src={topCollection[3].image} alt="item2" className="topCollectionImg" />
+              </Col>
             </Row>
           </Container>
         ) : (console.log("length 0"))}
