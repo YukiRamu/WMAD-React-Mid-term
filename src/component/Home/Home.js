@@ -22,32 +22,27 @@ const Home = (props) => {
       selectedTopPicks.push(copiedProps[Math.floor(Math.random() * copiedProps.length)]);//randomly push 
       copiedProps.splice(Math.floor(Math.random() * copiedProps.length), 1); //delete the target
     }
-    console.log(selectedTopPicks);
     setTopCollection(selectedTopPicks); //assign, not callback function
   };
 
   /* Filtered by category */
   const getWomenClothing = () => {
     let filteredWomenClothing = props.product.filter(elem => elem.category === "women's clothing");
-    console.log(filteredWomenClothing);
     setWomenClothing(filteredWomenClothing);
   };
 
   const getJewelery = () => {
     let filteredJewelery = props.product.filter(elem => elem.category === "jewelery");
-    console.log(filteredJewelery);
     setJewelery(filteredJewelery);
   };
 
   const getMenClothing = () => {
     let filteredMenClothing = props.product.filter(elem => elem.category === "men's clothing");
-    console.log(filteredMenClothing);
     setmenClothing(filteredMenClothing);
   };
 
   const getElectronics = () => {
     let filteredElectronics = props.product.filter(elem => elem.category === "electronics");
-    console.log(filteredElectronics);
     setElectronics(filteredElectronics);
   };
 
@@ -223,21 +218,23 @@ const Home = (props) => {
 
               <Col className="imgCol">
                 <h4>{topCollection[0].title}</h4>
-                <img src={topCollection[0].image} alt="item1" className="topCollectionImg" />
-                <div className="imgHover">
-                  <div>
-                    <p>{topCollection[0].description}</p>
-                    {/* Route to Detail page */}
-                    <Link
-                      to={{
-                        pathname: "/productDetail",
-                        state: {
-                          product: topCollection[0],
-                        },
-                      }}
-                      className="viewMoreBtn">View more</Link>
-                  </div>
-                </div>
+                <Wrapper>
+                  <Image src={topCollection[0].image} alt="item1" className="topCollectionImg" />
+                  <Hover className="imgHover">
+                    <div>
+                      <p>{topCollection[0].description}</p>
+                      {/* Route to Detail page */}
+                      <Link
+                        to={{
+                          pathname: "/productDetail",
+                          state: {
+                            product: topCollection[0],
+                          },
+                        }}
+                        className="viewMoreBtn">View more</Link>
+                    </div>
+                  </Hover>
+                </Wrapper>
               </Col>
             </Row>
 
