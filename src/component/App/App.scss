@@ -1,0 +1,20 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  font-family: "HCo Chronicle Display", Georgia, Times, "Times New Roman", serif;
+  .navBar {
+    ul {
+      list-style: none;
+      display: flex;
+      margin-bottom: 0;
+      li {
+        a {
+          text-decoration: none;
+          margin: 1rem;
+        }
+      }
+    }
+  }
+}
