@@ -2,16 +2,17 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css";
 import { Carousel, Container, Row, Col } from 'react-bootstrap';
-import { Redirect, BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import ProductDetail from "../ProductDetail/ProductDetail";
+import { Link } from 'react-router-dom';
+import styled from "styled-components";
+
 
 const Home = (props) => {
   /* State Hook */
   const [topCollection, setTopCollection] = useState([]);//create top collection
-  const [isClicked, setIsClicked] = useState({
-    isClicked: false,
-    data: {}
-  }); //redirect to detail page
+  const [womenClothing, setWomenClothing] = useState([]);
+  const [jewelery, setJewelery] = useState([]);
+  const [menClothing, setmenClothing] = useState([]);
+  const [electronics, setElectronics] = useState([]);
 
   /* Top Collection - randomly show four items */
   let copiedProps = props.product.slice();
@@ -25,33 +26,55 @@ const Home = (props) => {
     setTopCollection(selectedTopPicks); //assign, not callback function
   };
 
+  /* Filtered by category */
+  const getWomenClothing = () => {
+    let filteredWomenClothing = props.product.filter(elem => elem.category === "women's clothing");
+    console.log(filteredWomenClothing);
+    setWomenClothing(filteredWomenClothing);
+  };
+
+  const getJewelery = () => {
+    let filteredJewelery = props.product.filter(elem => elem.category === "jewelery");
+    console.log(filteredJewelery);
+    setJewelery(filteredJewelery);
+  };
+
+  const getMenClothing = () => {
+    let filteredMenClothing = props.product.filter(elem => elem.category === "men's clothing");
+    console.log(filteredMenClothing);
+    setmenClothing(filteredMenClothing);
+  };
+
+  const getElectronics = () => {
+    let filteredElectronics = props.product.filter(elem => elem.category === "electronics");
+    console.log(filteredElectronics);
+    setElectronics(filteredElectronics);
+  };
+
+  //prepare state hook
   useEffect(() => {
     getTopCollection();
+    getWomenClothing();
+    getJewelery();
+    getMenClothing();
+    getElectronics();
     return () => {
     };
   }, []);
 
-  /* Redirect to Detail Page when the view detail button is clicked*/
-  // if (isClicked.isClicked) {
-  //   props.getTargetProduct(isClicked.data); //pass props to parent
-  //   return <Redirect to="/productDetail" />;
-  // }
+  /* style for hover image */
+  const Image = styled.img`
+  `;
 
-  // console.log("clicked?", isClicked.isClicked);
+  const Hover = styled.div`
+      display:none;
+  `;
 
-  // if (isClicked.isClicked) {
-  //   console.log("I am here", isClicked.data);
-  //   props.getTargetProduct(isClicked.data); //pass props to parent
-  //   return <Redirect to="/productDetail" />;
-  // }
-
-  useEffect(() => {
-    if (isClicked.isClicked) {
-      console.log("I am here");
-      props.getTargetProduct(isClicked.data); //pass props to parent
-      return <Redirect to="/productDetail" />;
-    }
-  }, [isClicked]);
+  const Wrapper = styled.div`
+  &${Image}:hover + ${Hover} {
+    display:block;
+  }
+`;
 
   return (
     <>
@@ -59,7 +82,7 @@ const Home = (props) => {
       <section className="heroContentsSection">
         <Carousel
           fade={true}
-          interval={3000}
+          interval={2000}
           autoPlay={true}
           controls={true}
           indicators={true}>
@@ -75,6 +98,14 @@ const Home = (props) => {
               <p>Lorem ipsum dolor sit amet</p>
               <h2>Elegance & Luxury</h2>
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus cupiditate quas, quibusdam est distinctio odit maxime totam dolorum cumque atque facilis, reprehenderit perferendis esse nam inventore doloribus assumenda numquam? Rerum.</p>
+              <Link
+                to={{
+                  pathname: "/womenClothing",
+                  state: {
+                    data: womenClothing
+                  }
+                }}
+                className="categoryLink">Shop the SS21 Women's Collection</Link>
             </Carousel.Caption>
           </Carousel.Item>
 
@@ -89,6 +120,14 @@ const Home = (props) => {
               <p>Be ready for Summer</p>
               <h2>Summer Vibes</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <Link
+                to={{
+                  pathname: "/womenClothing",
+                  state: {
+                    data: womenClothing
+                  }
+                }}
+                className="categoryLink">Shop the SS21 Women's Collection</Link>
             </Carousel.Caption>
           </Carousel.Item>
 
@@ -103,6 +142,14 @@ const Home = (props) => {
               <p>Lorem ipsum dolor sit amet</p>
               <h2>Men's Classic</h2>
               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione dolorum pariatur aut sunt dolore vel unde vitae dolores, ipsa eligendi minus adipisci optio recusandae nam itaque consectetur dignissimos beatae velit.</p>
+              <Link
+                to={{
+                  pathname: "/menClothing",
+                  state: {
+                    data: menClothing
+                  }
+                }}
+                className="categoryLink">Shop the SS21 Men's Classic</Link>
             </Carousel.Caption>
           </Carousel.Item>
 
@@ -117,6 +164,14 @@ const Home = (props) => {
               <p>Lorem ipsum dolor sit amet</p>
               <h2>Jewelery collections</h2>
               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione dolorum pariatur aut sunt dolore vel unde vitae dolores, ipsa eligendi minus adipisci optio recusandae nam itaque consectetur dignissimos beatae velit.</p>
+              <Link
+                to={{
+                  pathname: "jewelery",
+                  state: {
+                    data: jewelery
+                  }
+                }}
+                className="categoryLink">Shop Summer Jewelery Collection</Link>
             </Carousel.Caption>
           </Carousel.Item>
 
@@ -131,6 +186,14 @@ const Home = (props) => {
               <p>Lorem ipsum dolor sit amet</p>
               <h2>Stylish Electronics</h2>
               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione dolorum pariatur aut sunt dolore vel unde vitae dolores, ipsa eligendi minus adipisci optio recusandae nam itaque consectetur dignissimos beatae velit.</p>
+              <Link
+                to={{
+                  pathname: "/electronics",
+                  state: {
+                    data: electronics
+                  }
+                }}
+                className="categoryLink">Shop Stylish Electronics</Link>
             </Carousel.Caption>
           </Carousel.Item>
 
