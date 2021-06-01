@@ -28,62 +28,6 @@
 }
 
 /* Top Collection */
-.topCollectionSection .container-fluid .row .imgCol {
-  position: relative;
-  height: 90vh;
-  margin: 1rem;
-  background-color: #c2ad9a54;
-}
-
-.topCollectionSection .container-fluid .row .imgCol h4 {
-  position: absolute;
-  top: 10%;
-  width: 60%;
-  z-index: 1;
-  background-color: #b78e6ac5;
-  color: white;
-  border: 0.1rem solid #965c36;
-  font-family: "HCo Chronicle Display", Georgia, Times, "Times New Roman", serif;
-  font-size: 1.3rem;
-}
-
-.topCollectionSection .container-fluid .row .imgCol .topCollectionImg {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  margin: auto;
-  width: 80%;
-  height: 80%;
-}
-
-.topCollectionSection .container-fluid .row .imgCol .imgHover {
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  padding: 3rem;
-  background-color: rgba(255, 255, 255, 0.793);
-  z-index: 10;
-}
-
-.topCollectionSection .container-fluid .row .imgCol .imgHover button {
-  background-color: rgba(0, 0, 0, 0.593);
-  color: white;
-  border: 0.1rem solid black;
-  padding: 1rem 2rem;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
 .topCollectionSection .container-fluid .row .titleCol {
   margin: 1rem;
   height: 90vh;
@@ -115,5 +59,75 @@
 .topCollectionSection .container-fluid .row .titleCol .collectionTitleContainer .collectionTitle h2 {
   font-weight: bold;
   font-family: "HCo Chronicle Display", Georgia, Times, "Times New Roman", serif;
+}
+
+.topCollectionSection .container-fluid .row .imgCol {
+  position: relative;
+  height: 90vh;
+  margin: 1rem;
+  background-color: #c2ad9a54;
+}
+
+.topCollectionSection .container-fluid .row .imgCol h4 {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 70%;
+  z-index: 1;
+  background-color: #b78e6ac5;
+  color: white;
+  border: 0.1rem solid #965c36;
+  font-family: "HCo Chronicle Display", Georgia, Times, "Times New Roman", serif;
+  font-size: 1.3rem;
+  padding: 1rem;
+}
+
+.topCollectionSection .container-fluid .row .imgCol .topCollectionImg {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  margin: auto;
+  width: 80%;
+  height: 80%;
+}
+
+.topCollectionSection .container-fluid .row .imgCol .imgHover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  padding: 3rem;
+  background-color: #a76e48c8;
+  z-index: 10;
+  color: white;
+}
+
+.topCollectionSection .container-fluid .row .imgCol .imgHover div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 80%;
+}
+
+.topCollectionSection .container-fluid .row .imgCol .imgHover div .viewMoreBtn {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.593);
+  color: white;
+  border: 0.1rem solid black;
+  padding: 1rem 1rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  text-decoration: none;
 }
 /*# sourceMappingURL=Home.css.map */

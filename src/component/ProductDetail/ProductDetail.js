@@ -1,28 +1,14 @@
-import React from 'react'
-import "./ProductDetail.css";
+import React from 'react';
 
-const ProductDetail = () => {
+const ProductDetail = (props) => {
+
+console.log("product detail", props.location.state)
   return (
-    <div className="detailContainer">
-    <div className="colum">
-      <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"></img>
-    </div>
-    <div className="colum">
-      <h2>Title</h2>
-      <p>category</p>
-      <p>price</p>
-      <p>description</p>
-      <button>Add to cart</button>
-      <div className="ditailContainer">
-        <h4>Title</h4>
-        <p>Ditails:</p>
-      </div>
-    </div>
-    </div>
+    <>
+      <h1>Product Detail Page</h1>
+      <h2>{props.location.state.product.title}</h2>
+    </>
   );
-};
+}
 
-export default ProductDetail
-
-//Add tp cart function
-// alaert something when you click the button
+export default ProductDetail;

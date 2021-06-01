@@ -13,6 +13,8 @@ import LogIn from "../LogIn/LogIn";
 import CheckOut from "../CheckOut/CheckOut";
 import Footer from "../Layout/Footer";
 import AllProducts from '../API/AllProducts';
+import ProductDetail from "../ProductDetail/ProductDetail";
+import Category from "../Category/Category";
 
 const App = () => {
   const [allProducts, setProduct] = useState([]);
@@ -24,9 +26,6 @@ const App = () => {
       setProduct(fetchedData); //set state hook
       console.log(allProducts);
     })();
-
-    return () => {
-    };
   }, []);
 
   //**************************************** */
@@ -52,6 +51,7 @@ const App = () => {
   //   };
   // }, []);
   //**************************************** */
+
   return (
     <>
       {/* React Router : Navbar */}
@@ -76,19 +76,28 @@ const App = () => {
         <Switch>
           {allProducts.length !== 0 ? (
             <>
-              < Route exact path="/" render={() => <Home product={allProducts} />} />
+              <Route exact path="/" render={() => <Home product={allProducts} />} />
+
               <Route path="/login">
                 <LogIn />
               </Route>
+
               <Route path="/checkout">
                 <CheckOut />
               </Route>
-            </>
-          ) : (
-            console.log("allProducts not yet ready"))}
 
+              <Route path="/productDetail" component={ProductDetail} />
+              <Route path="/womenClothing" component={Category} />
+              <Route path="/menClothing" component={Category} />
+              <Route path="/jewelery" component={Category} />
+              <Route path="/electronics" component={Category} />
+
+            </>
+          ) : ("")}
         </Switch>
       </Router>
+
+      {/* Footer */}
       <Footer />
     </>
   );
