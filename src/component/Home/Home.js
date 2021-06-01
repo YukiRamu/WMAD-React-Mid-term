@@ -13,6 +13,7 @@ const Home = (props) => {
   const [jewelery, setJewelery] = useState([]);
   const [menClothing, setmenClothing] = useState([]);
   const [electronics, setElectronics] = useState([]);
+  const [displayStyle, setDisplay] = useState({ "display": "none" });
 
   /* Top Collection - randomly show four items */
   let copiedProps = props.product.slice();
@@ -57,19 +58,18 @@ const Home = (props) => {
     };
   }, []);
 
-  /* style for hover image */
-  const Image = styled.img`
-  `;
+  /* Show/Hide product description */
+  const showDescription = (e) => {
+    e.target.nextSibling.attributes[1].value === "display: none;" ?
+      e.target.nextSibling.attributes[1].value = "display: block;"
+      : e.target.nextSibling.attributes[1].value = "display: none;";
+  };
 
-  const Hover = styled.div`
-      display:none;
-  `;
-
-  const Wrapper = styled.div`
-  &${Image}:hover + ${Hover} {
-    display:block;
-  }
-`;
+  const hideDescription = (e) => {
+    e.target.parentNode.parentNode.attributes[1].value === "display: block;" ?
+      e.target.parentNode.parentNode.attributes[1].value = "display: none;"
+      : e.target.parentNode.parentNode.attributes[1].value = "display: block;";
+  };
 
   return (
     <>
@@ -218,32 +218,31 @@ const Home = (props) => {
 
               <Col className="imgCol">
                 <h4>{topCollection[0].title}</h4>
-                <Wrapper>
-                  <Image src={topCollection[0].image} alt="item1" className="topCollectionImg" />
-                  <Hover className="imgHover">
-                    <div>
-                      <p>{topCollection[0].description}</p>
-                      {/* Route to Detail page */}
-                      <Link
-                        to={{
-                          pathname: "/productDetail",
-                          state: {
-                            product: topCollection[0],
-                          },
-                        }}
-                        className="viewMoreBtn">View more</Link>
-                    </div>
-                  </Hover>
-                </Wrapper>
+                <img src={topCollection[0].image} alt="item1" className="topCollectionImg" onClick={showDescription} />
+                <div className="imgHover" style={{ "display": "none" }}>
+                  <Row>
+                    <p>{topCollection[0].description}</p>
+                    {/* Route to Detail page */}
+                    <Link
+                      to={{
+                        pathname: "/productDetail",
+                        state: {
+                          product: topCollection[0],
+                        },
+                      }}
+                      className="viewMoreBtn">View more</Link>
+                    <button type="button" className="closeBtn" onClick={hideDescription}>Close</button>
+                  </Row>
+                </div>
               </Col>
             </Row>
 
             <Row>
               <Col className="imgCol">
                 <h4>{topCollection[1].title}</h4>
-                <img src={topCollection[1].image} alt="item2" className="topCollectionImg" />
-                <div className="imgHover">
-                  <div>
+                <img src={topCollection[1].image} alt="item2" className="topCollectionImg" onClick={showDescription} />
+                <div className="imgHover" style={displayStyle}>
+                  <Row>
                     <p>{topCollection[1].description}</p>
                     {/* Route to Detail page */}
                     <Link
@@ -254,14 +253,15 @@ const Home = (props) => {
                         },
                       }}
                       className="viewMoreBtn">View more</Link>
-                  </div>
+                    <button type="button" className="closeBtn" onClick={hideDescription}>Close</button>
+                  </Row>
                 </div>
               </Col>
               <Col className="imgCol">
                 <h4>{topCollection[2].title}</h4>
-                <img src={topCollection[2].image} alt="item3" className="topCollectionImg" />
-                <div className="imgHover">
-                  <div>
+                <img src={topCollection[2].image} alt="item3" className="topCollectionImg" onClick={showDescription} />
+                <div className="imgHover" style={displayStyle}>
+                  <Row>
                     <p>{topCollection[2].description}</p>
                     {/* Route to Detail page */}
                     <Link
@@ -272,14 +272,15 @@ const Home = (props) => {
                         },
                       }}
                       className="viewMoreBtn">View more</Link>
-                  </div>
+                    <button type="button" className="closeBtn" onClick={hideDescription}>Close</button>
+                  </Row>
                 </div>
               </Col>
               <Col className="imgCol">
                 <h4>{topCollection[3].title}</h4>
-                <img src={topCollection[3].image} alt="item4" className="topCollectionImg" />
-                <div className="imgHover">
-                  <div>
+                <img src={topCollection[3].image} alt="item4" className="topCollectionImg" onClick={showDescription} />
+                <div className="imgHover" style={displayStyle}>
+                  <Row>
                     <p>{topCollection[3].description}</p>
                     {/* Route to Detail page */}
                     <Link
@@ -289,8 +290,9 @@ const Home = (props) => {
                           product: topCollection[3],
                         },
                       }}
-                      className="viewMoreBtn" >View more</Link>
-                  </div>
+                      className="viewMoreBtn">View more</Link>
+                    <button type="button" className="closeBtn" onClick={hideDescription}>Close</button>
+                  </Row>
                 </div>
               </Col>
             </Row>
@@ -303,7 +305,6 @@ const Home = (props) => {
         <img src="" alt="" />
       </section>
 
-   
 
     </>
   );
