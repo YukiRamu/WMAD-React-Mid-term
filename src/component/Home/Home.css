@@ -28,6 +28,39 @@
 }
 
 /* Top Collection */
+.topCollectionSection .container-fluid .row .titleCol {
+  margin: 1rem;
+  height: 90vh;
+  position: relative;
+}
+
+.topCollectionSection .container-fluid .row .titleCol .collectionTitleContainer {
+  background-color: rgba(255, 255, 255, 0.655);
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.topCollectionSection .container-fluid .row .titleCol .collectionTitleContainer .collectionTitle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 2rem;
+}
+
+.topCollectionSection .container-fluid .row .titleCol .collectionTitleContainer .collectionTitle h2 {
+  font-weight: bold;
+  font-family: "HCo Chronicle Display", Georgia, Times, "Times New Roman", serif;
+}
+
 .topCollectionSection .container-fluid .row .imgCol {
   position: relative;
   height: 90vh;
@@ -60,7 +93,6 @@
 }
 
 .topCollectionSection .container-fluid .row .imgCol .imgHover {
-  display: none;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -70,50 +102,30 @@
   width: 100%;
   margin: auto;
   padding: 3rem;
-  background-color: rgba(255, 255, 255, 0.793);
+  background-color: #a76e48b5;
   z-index: 10;
+  color: white;
 }
 
-.topCollectionSection .container-fluid .row .imgCol .imgHover button {
+.topCollectionSection .container-fluid .row .imgCol .imgHover div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 80%;
+}
+
+.topCollectionSection .container-fluid .row .imgCol .imgHover div .viewMoreBtn {
+  display: block;
   background-color: rgba(0, 0, 0, 0.593);
   color: white;
   border: 0.1rem solid black;
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-}
-
-.topCollectionSection .container-fluid .row .titleCol {
-  margin: 1rem;
-  height: 90vh;
-  position: relative;
-}
-
-.topCollectionSection .container-fluid .row .titleCol .collectionTitleContainer {
-  background-color: rgba(255, 255, 255, 0.655);
-  width: 80%;
-  height: 80%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.topCollectionSection .container-fluid .row .titleCol .collectionTitleContainer .collectionTitle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 100%;
-  padding: 2rem;
-}
-
-.topCollectionSection .container-fluid .row .titleCol .collectionTitleContainer .collectionTitle h2 {
-  font-weight: bold;
-  font-family: "HCo Chronicle Display", Georgia, Times, "Times New Roman", serif;
+  margin: auto;
+  text-decoration: none;
 }
 /*# sourceMappingURL=Home.css.map */
