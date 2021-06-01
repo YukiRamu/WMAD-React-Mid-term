@@ -1,5 +1,4 @@
 const AllProducts = async () => {
-
   try {
     const productResponse = await fetch("https://fakestoreapi.com/products");
     if (!productResponse.ok) {
@@ -12,6 +11,5 @@ const AllProducts = async () => {
     console.log(`Error = ${error} : Failed to fetch productList`);
     return error;
   }
-
 };
 export default AllProducts;
