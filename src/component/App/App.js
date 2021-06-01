@@ -14,10 +14,10 @@ import CheckOut from "../CheckOut/CheckOut";
 import Footer from "../Layout/Footer";
 import AllProducts from '../API/AllProducts';
 import ProductDetail from "../ProductDetail/ProductDetail";
+import Category from "../Category/Category";
 
 const App = () => {
   const [allProducts, setProduct] = useState([]);
-  const [targetItem, setTargetItem] = useState({}); //props for detail page
 
   useEffect(() => {
     (async () => {
@@ -76,7 +76,7 @@ const App = () => {
         <Switch>
           {allProducts.length !== 0 ? (
             <>
-              <Route exact path="/" render={() => <Home product={allProducts}/>} />
+              <Route exact path="/" render={() => <Home product={allProducts} />} />
 
               <Route path="/login">
                 <LogIn />
@@ -86,7 +86,11 @@ const App = () => {
                 <CheckOut />
               </Route>
 
-              <Route path="/productDetail" component={ProductDetail}/>
+              <Route path="/productDetail" component={ProductDetail} />
+              <Route path="/womenClothing" component={Category} />
+              <Route path="/menClothing" component={Category} />
+              <Route path="/jewelery" component={Category} />
+              <Route path="/electronics" component={Category} />
 
             </>
           ) : ("")}

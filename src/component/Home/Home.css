@@ -70,14 +70,16 @@
 
 .topCollectionSection .container-fluid .row .imgCol h4 {
   position: absolute;
-  top: 10%;
-  width: 60%;
+  top: 5%;
+  left: 5%;
+  width: 70%;
   z-index: 1;
   background-color: #b78e6ac5;
   color: white;
   border: 0.1rem solid #965c36;
   font-family: "HCo Chronicle Display", Georgia, Times, "Times New Roman", serif;
   font-size: 1.3rem;
+  padding: 1rem;
 }
 
 .topCollectionSection .container-fluid .row .imgCol .topCollectionImg {
@@ -102,7 +104,7 @@
   width: 100%;
   margin: auto;
   padding: 3rem;
-  background-color: #a76e48b5;
+  background-color: #a76e48c8;
   z-index: 10;
   color: white;
 }
