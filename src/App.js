@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,9 +10,24 @@ import {
 import Home from "./component/Home/Home";
 import LogIn from "./component/LogIn/LogIn";
 import CheckOut from "./component/CheckOut/CheckOut";
-import FetchAPI from './component/API/FetchAPI'
+// import FetchAPI from './component/API/NewFetchAPI';
+import AllProducts from './component/API/AllProducts';
 
 const App = () => {
+  const addProductsDataHandler = products => {
+    console.log('IN APP JS');
+    console.log(products);
+    setProductsData(products);
+  }
+
+  const [pData, setProductsData] = useState([]);
+
+  // useEffect(async () => {
+  //   let p = await AllProducts()
+  //   setProductsData(p);
+  //   console.log('YOU ARE IN APP JS ' + pData);
+  // }, [])
+
   return (
     <>
       {/* React Router : Navbar */}
@@ -43,7 +58,7 @@ const App = () => {
               <LogIn />
             </Route>
             <Route path="/checkout">
-              <CheckOut />
+              <CheckOut pdata = {pData}/>
             </Route>
           </Switch>
         </div>

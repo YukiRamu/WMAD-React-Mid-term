@@ -1,92 +1,121 @@
-.header-placeholder{
-    text-align: center;
-    box-shadow: 1px 3px lightgray;
+/* FORM */
+
+.form-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 1em;
+  grid-auto-rows: minmax(100px, auto);
+  margin: 0rem 20rem;
 }
 
-.cart-title{
-    margin: 3rem;
-    text-align: center;
-    font-weight: normal;
+.contactText {
+  display: flex;
+  align-items: center;
 }
 
-.shopping-cart-container{
-    
-    margin: 3rem;
-    padding-bottom: 3rem;
-    text-align: center;
-    border-bottom: 1px solid #f0f0f0;
+.contactInfo {
+  margin-right: 4rem;
 }
 
-.productList-container{
-    display: flex;
-    margin: 0rem 20rem;
+.account {
+  font-size: 1rem;
+  margin-left: 0.5rem;
 }
 
-.image{
-    width: 180px;
-    height: 225px;
-    margin-right: 2rem;
-    background-color: lightgray;
+.email-input {
+  width: 90%;
+  height: 2rem;
+  padding: 0.3rem;
+  font-size: 1rem;
+  margin-top: 1rem;
 }
 
-.product-description{
-    width: 423px;
-    height: 225px;
-    margin-right: 4rem;
-    text-align: justify;
+.checkbox-container {
+  margin-top: 1rem;
 }
 
-.product-text{
-    color: darkgray;
+.checkbox {
+  width: 1rem;
+  height: 1rem;
 }
 
-.description-text{
-    color: #005b8d;
+.checkboxText {
+  margin-left: 0.3rem;
 }
 
-.quantity{
-    width: 144.77px;
-    height: 225px;
-    margin-right: 5rem;
+.address-container {
+  margin-top: 4rem;
 }
 
-.quantity-number{
-    margin: 1rem;
-    border-bottom: 1px solid gray;
+.address-input {
+  width: 40%;
+  height: 2rem;
+  padding: 0.3rem;
+  font-size: 1rem;
+  margin-right: 1rem;
 }
 
-.total{
-    margin-right: 5.3rem;
+.country-input {
+  width: 40%;
+  height: 2rem;
+  padding: 0.3rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-right: 1rem;
 }
 
-.trashBin{
-    width: 12.25px;
-    height: 14px;
-    background-color: gray;
-    margin: 1.4rem;
+/* SUMMARY */
+
+.summary-text {
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 1rem;
 }
 
-.form-container{
-    margin: 0rem 20rem;
+.subtotal-container {
+  display: flex;
+  align-items: baseline;
 }
 
-.contactText{
-    display: flex;
-    align-items: center;
+.subtotal {
+  color: gray;
 }
 
-.contactInfo{
-    margin-right: 4rem;
+.money {
+  font-weight: bold;
+  float: right;
+  margin-left: 20rem;
+  font-size: 1.1rem;
 }
 
-.account{
-    font-size: 1rem;
+.total-money {
+  font-weight: bold;
+  float: right;
+  margin-left: 18rem;
+  font-size: 1.7rem;
 }
 
-.email-input{
-    width: 31%;
-    height: 2rem;
-    padding: .3rem;
-    font-size: 1rem;
-    border-color: 1px solid lightgray;
+.currency {
+  font-size: 1rem;
+  font-weight: normal;
+  color: gray;
+  margin-right: 1rem;
+}
+
+.proceed-btn {
+  float: right;
+  width: 100%;
+  background-color: #30ba5b;
+  color: white;
+  border-color: transparent;
+  border-radius: 0.5rem;
+  padding: .5rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.proceed-btn:hover {
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid #30ba5b;
+  color: #30ba5b;
 }
