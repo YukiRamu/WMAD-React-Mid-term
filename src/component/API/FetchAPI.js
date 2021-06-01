@@ -66,14 +66,17 @@ class FetchAPI extends React.Component {
             .then(response => {
                 if (response.status !== 200) {
                     console.log(`We have a problem! ${response.status}`);
+                }else {
+                   const data =  response.json()
+                   return data;
                 }
-                response.json()
-                    .then(data => {
-                        console.log("NEW PRODUCT DATA" + data);
-                        this.setState({
-                            addNewProduct: data
-                        });
-                    });
+                
+                    // .then(data => {
+                    //     console.log("NEW PRODUCT DATA" + data);
+                    //     this.setState({
+                    //         addNewProduct: data
+                    //     });
+                    // });
             })
             .catch((error) => {
                 console.log((`Error ${error}`));

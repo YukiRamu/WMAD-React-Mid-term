@@ -3,11 +3,11 @@ import "./ProductDetail.css";
 
 const ProductDetail = () => {
   return (
-    <>
-    <div>
+    <div className="detailContainer">
+    <div className="colum">
       <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"></img>
     </div>
-    <div>
+    <div className="colum">
       <h2>Title</h2>
       <p>category</p>
       <p>price</p>
@@ -18,7 +18,7 @@ const ProductDetail = () => {
         <p>Ditails:</p>
       </div>
     </div>
-    </>
+    </div>
   );
 };
 

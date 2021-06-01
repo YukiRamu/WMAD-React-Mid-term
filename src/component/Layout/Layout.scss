@@ -36,36 +36,36 @@ footer {
     }
 
     h3 {
-      font-family:$sub-font;
+      font-family: $sub-font;
       font-size: $big-fontsize + 0.2rem;
     }
 
     h4 {
       color: #757575;
-      font-family:$sub-font;
+      font-family: $sub-font;
       font-size: $big-fontsize;
     }
 
-   ul {
-     padding: 0;
-     margin: 0;
+    ul {
+      padding: 0;
+      margin: 0;
 
-    li {
-      list-style: none;
-      display: inline-block;
-      margin: 0 5px;
+      li {
+        list-style: none;
+        display: inline-block;
+        margin: 0 5px;
 
-      a {
-        color: #212121;
-        text-decoration: none;
-        font-size: 1.5rem;
+        a {
+          color: #212121;
+          text-decoration: none;
+          font-size: 1.5rem;
 
-        &:hover {
-          color: #5e595952;
+          &:hover {
+            color: #5e595952;
+          }
         }
       }
     }
-   }
   }
 
   .rowFooter {
