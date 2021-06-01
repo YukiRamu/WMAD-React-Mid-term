@@ -303,12 +303,7 @@ const Home = (props) => {
         <img src="" alt="" />
       </section>
 
-      {/* Navigate to Detail page */}
-      {/* <Router>
-        <Switch>
-          <Route exact path="/productDetail" component={ProductDetail} />
-        </Switch>
-      </Router> */}
+   
 
     </>
   );
