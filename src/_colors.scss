@@ -1,12 +1,17 @@
 /* Color Palette */
 
-$primary-color:#212121;
+$primary-color: #212121;
 $primary-hover: #056420;
-$secondary-color:#757575;
-$secondary-hover:#005B90;
+$secondary-color: #757575;
+$secondary-hover: #005b90;
+$white: white;
+$blackTr: rgba(0, 0, 0, 0.593);
+$accent: #1a3a1cca;
+$accentBg: #8b978b54;
 
 /* Font Palette */
-$main-font:sans-serif;
-$sub-font:serif;
-$big-fontsize:1rem;
-$small-fontsize:0.8rem;
+$main-font: sans-serif;
+$sub-font: serif;
+$title-font: "HCo Chronicle Display", Georgia, Times, "Times New Roman";
+$big-fontsize: 1rem;
+$small-fontsize: 0.8rem;

@@ -1,0 +1,86 @@
+@import "../../colors";
+
+.loginContainer {
+  min-height: 90vh;
+  padding-top: 60px;
+  /* After logged in */
+  .welcome {
+    font-family: $sub-font;
+    margin: 1rem 0;
+    text-align: center;
+    span {
+      color: $accent;
+    }
+  }
+  .btnDiv {
+    display: flex;
+    justify-content: center;
+    .logOutBtn,
+    .goToHomeBtn {
+      background-color: $primary-color;
+      outline: none;
+      border: none;
+      border-radius: unset;
+      margin: 0 1rem;
+      width: 10vw;
+      &:focus {
+        border: none;
+        outline: none;
+        box-shadow: none;
+        background-color: $accentBg;
+        color: black;
+        border: 0.1rem solid $secondary-color;
+      }
+      &:hover {
+        background-color: $accentBg;
+        color: black;
+        border: 0.1rem solid $secondary-color;
+      }
+    }
+  }
+
+  /* Form */
+  .logInForm {
+    h2 {
+      font-family: $sub-font;
+      text-align: center;
+      width: 100%;
+      padding: 1rem 0;
+      border-bottom: 0.1rem groove gray;
+    }
+    width: 50%;
+    margin: auto;
+    .form-group {
+      margin-bottom: 1rem;
+      .form-control {
+        border-radius: unset;
+        &:focus {
+          border: none;
+          outline: none;
+          box-shadow: none;
+          color: black;
+          border: 0.1rem solid $secondary-color;
+        }
+      }
+    }
+    .submitBtn {
+      background-color: $primary-color;
+      outline: none;
+      border: none;
+      border-radius: unset;
+      &:focus {
+        border: none;
+        outline: none;
+        box-shadow: none;
+        background-color: $accentBg;
+        color: black;
+        border: 0.1rem solid $secondary-color;
+      }
+      &:hover {
+        background-color: $accentBg;
+        color: black;
+        border: 0.1rem solid $secondary-color;
+      }
+    }
+  }
+}
