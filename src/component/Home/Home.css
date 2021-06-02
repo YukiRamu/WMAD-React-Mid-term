@@ -1,4 +1,10 @@
+/* Color Palette */
+/* Font Palette */
 /* Carousel */
+.heroContentsSection {
+  padding-top: 60px;
+}
+
 .heroContentsSection .carousel-inner {
   height: 80vh;
 }
@@ -23,14 +29,32 @@
 }
 
 .heroContentsSection .carousel-inner .carousel-item .carousel-caption h2 {
-  font-family: "HCo Chronicle Display", Georgia, Times, "Times New Roman", serif;
+  font-family: "HCo Chronicle Display", Georgia, Times, "Times New Roman";
   font-size: 4rem;
+}
+
+.heroContentsSection .carousel-inner .carousel-item .carousel-caption .categoryLink {
+  display: block;
+  padding: 0.5rem;
+  margin-top: 2rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-decoration: none;
+  background-color: #757575a5;
+  color: white;
+}
+
+.heroContentsSection .carousel-inner .carousel-item .carousel-caption .categoryLink:hover {
+  background-color: #212121;
+  color: white;
+  border: 0.1rem solid #757575;
 }
 
 /* Top Collection */
 .topCollectionSection .container-fluid .row .titleCol {
   margin: 1rem;
-  height: 90vh;
+  height: 80vh;
   position: relative;
 }
 
@@ -58,14 +82,14 @@
 
 .topCollectionSection .container-fluid .row .titleCol .collectionTitleContainer .collectionTitle h2 {
   font-weight: bold;
-  font-family: "HCo Chronicle Display", Georgia, Times, "Times New Roman", serif;
+  font-family: "HCo Chronicle Display", Georgia, Times, "Times New Roman";
 }
 
 .topCollectionSection .container-fluid .row .imgCol {
   position: relative;
-  height: 90vh;
+  height: 80vh;
   margin: 1rem;
-  background-color: #c2ad9a54;
+  background-color: #8b978b54;
 }
 
 .topCollectionSection .container-fluid .row .imgCol h4 {
@@ -74,10 +98,9 @@
   left: 5%;
   width: 70%;
   z-index: 1;
-  background-color: #b78e6ac5;
+  background-color: rgba(0, 0, 0, 0.593);
   color: white;
-  border: 0.1rem solid #965c36;
-  font-family: "HCo Chronicle Display", Georgia, Times, "Times New Roman", serif;
+  font-family: "HCo Chronicle Display", Georgia, Times, "Times New Roman";
   font-size: 1.3rem;
   padding: 1rem;
 }
@@ -105,9 +128,10 @@
   width: 100%;
   margin: auto;
   padding: 3rem;
-  background-color: #a76e48c8;
+  background-color: rgba(255, 255, 255, 0.841);
+  border: 0.1rem groove #1a3a1cca;
   z-index: 10;
-  color: white;
+  color: #1a3a1cca;
 }
 
 .topCollectionSection .container-fluid .row .imgCol .imgHover div {
@@ -130,23 +154,32 @@
   display: block;
   background-color: rgba(0, 0, 0, 0.593);
   color: white;
-  border: 0.1rem solid black;
-  padding: 0.5rem;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  padding: 0.6rem;
+  width: 10vw;
   text-decoration: none;
   margin: 1rem;
+  text-align: center;
+}
+
+.topCollectionSection .container-fluid .row .imgCol .imgHover div .viewMoreBtn:hover {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.593);
+  border: 0.1rem solid #1a3a1cca;
 }
 
 .topCollectionSection .container-fluid .row .imgCol .imgHover div .closeBtn {
   background-color: rgba(0, 0, 0, 0.593);
   color: white;
-  border: 0.1rem solid black;
   padding: 0.5rem;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  width: 10vw;
   margin: 1rem;
+  outline: none;
+  border: none;
+}
+
+.topCollectionSection .container-fluid .row .imgCol .imgHover div .closeBtn:hover {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.593);
+  border: 0.1rem solid #1a3a1cca;
 }
 /*# sourceMappingURL=Home.css.map */
