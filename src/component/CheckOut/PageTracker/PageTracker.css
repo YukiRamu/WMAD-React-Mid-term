@@ -19,6 +19,16 @@
   padding-right: 1rem;
 }
 
+#ship:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 #pay {
   color: gray;
+}
+
+#pay:hover{
+  cursor: pointer;
+  text-decoration: underline;
 }
