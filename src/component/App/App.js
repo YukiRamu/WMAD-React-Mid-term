@@ -57,7 +57,7 @@ const App = () => {
       {/* React Router : Navbar */}
       <Router>
         <header>
-          <h1 className="siteTitle">Website Title / Logo here</h1>
+          <h1 className="siteTitle"><a href="/">SDY Premium Shoppers</a></h1>
           <nav className="navBar">
             <ul>
               <li>
