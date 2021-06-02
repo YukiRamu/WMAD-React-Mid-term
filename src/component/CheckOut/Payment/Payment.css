@@ -1,0 +1,84 @@
+.payment-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 1em;
+  grid-auto-rows: minmax(100px, auto);
+  margin: 2.5rem 20rem;
+}
+
+.contact-info {
+  width: 90%;
+  border: 1px solid darkgray;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.payment-contact {
+  display: inline-flex;
+  width: 100%;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.payment-contactText {
+  color: gray;
+}
+
+.payment-addressText {
+  margin: 0rem 1rem;
+}
+
+.payment-change-btn {
+  float: right;
+}
+
+.change-btn {
+  float: right;
+  color: gray;
+  border-style: none;
+  background-color: transparent;
+}
+
+.change-btn:hover {
+  text-decoration: underline;
+}
+
+.payment-address {
+  display: flex;
+  padding-top: 1rem;
+}
+
+.shippingText {
+    
+  margin: 3rem 0rem;
+}
+
+.shipping-container {
+  width: 90%;
+  border: 1px solid darkgray;
+  border-radius: 0.5rem;
+}
+
+.checkbox-shipping {
+  padding: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.checkbox-shipping2 {
+  padding: 1rem;
+  padding-bottom: 1rem;
+}
+
+.checkbox-ship {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.checkbox-post {
+  margin: 0rem 1rem;
+}
+
+.checkbox-price {
+  font-weight: bold;
+}
