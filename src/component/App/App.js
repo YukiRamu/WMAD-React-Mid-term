@@ -22,7 +22,6 @@ const App = () => {
       {/* React Router*/}
       <Router>
         <Header />
-        
         {/* Router Switch */}
         <Switch>
               <Route exact path="/" component={Home} />
@@ -37,7 +36,6 @@ const App = () => {
               <Route path="/account" component={Account} />
         </Switch>
       </Router>
-
       {/* Footer */}
       <Footer />
     </>

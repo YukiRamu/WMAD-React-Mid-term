@@ -1,7 +1,4 @@
-$main-font:sans-serif;
-$sub-font:serif;
-$big-fontsize:1rem;
-$small-fontsize:0.8rem;
+@import "_colors";
 
 
 footer {
@@ -9,7 +6,7 @@ footer {
   font-size: $small-fontsize;
 
   .mainFooter {
-    font-family:$main-font;
+    font-family: $main-font;
     margin: 0 5%;
     padding: 32px 0px;
     color: #212121;
