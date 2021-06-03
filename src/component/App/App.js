@@ -9,11 +9,12 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Home from "../Home/Home";
+import ProductDetail from "../ProductDetail/ProductDetail" //Delete before you push your code
 import LogIn from "../LogIn/LogIn";
 import CheckOut from "../CheckOut/CheckOut";
 import Footer from "../Layout/Footer";
 import AllProducts from '../API/AllProducts';
-import ProductDetail from "../ProductDetail/ProductDetail";
+// import ProductDetail from "../ProductDetail/ProductDetail";
 import Category from "../Category/Category";
 
 const App = () => {
@@ -86,7 +87,7 @@ const App = () => {
                 <CheckOut />
               </Route>
 
-              <Route path="/productDetail" component={ProductDetail} />
+              {/* <Route path="/productDetail" component={ProductDetail} /> */}
               <Route path="/womenClothing" component={Category} />
               <Route path="/menClothing" component={Category} />
               <Route path="/jewelery" component={Category} />
@@ -99,6 +100,8 @@ const App = () => {
 
       {/* Footer */}
       <Footer />
+
+      {/* <ProductDetail allProducts={allProducts}/> */}
     </>
   );
 };
