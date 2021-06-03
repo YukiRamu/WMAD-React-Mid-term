@@ -1,42 +1,32 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "../Home/Home";
 import LogIn from "../LogIn/LogIn";
+import Account from "../Account/Account";
 import CheckOut from "../CheckOut/CheckOut";
-import AllProducts from '../API/AllProducts';
 import ProductDetail from "../ProductDetail/ProductDetail";
 import Category from "../Category/Category";
 import Header from "../Header/Header";
 import Footer from "../Layout/Footer";
 
-
 const App = () => {
-  const [allProducts, setProduct] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const fetchedData = await AllProducts();
-      setProduct(fetchedData); //set state hook
-    })();
-  }, []);
 
   return (
     <>
       {/* React Router*/}
       <Router>
         <Header />
+        
         {/* Router Switch */}
         <Switch>
-          {allProducts.length !== 0 ? (
-            <>
-              <Route exact path="/" render={() => <Home product={allProducts} />} />
+              <Route exact path="/" component={Home} />
+              <Route path="/home" component={Home} />
               <Route path="/login" component={LogIn} />
               <Route path="/checkout" component={CheckOut} />
               <Route path="/productDetail" component={ProductDetail} />
@@ -44,8 +34,7 @@ const App = () => {
               <Route path="/menClothing" component={Category} />
               <Route path="/jewelery" component={Category} />
               <Route path="/electronics" component={Category} />
-            </>
-          ) : ("")}
+              <Route path="/account" component={Account} />
         </Switch>
       </Router>
 

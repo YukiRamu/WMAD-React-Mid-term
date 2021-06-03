@@ -1,7 +1,9 @@
 //This component is for the login page of our website
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./LogIn.css";
 import { Form, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { FaRegArrowAltCircleRight } from "react-icons/fa";
 
 const LogIn = () => {
 
@@ -14,13 +16,13 @@ const LogIn = () => {
   //state hook
   const [user, setUser] = useState({ name: "", email: "" });
   const [error, setError] = useState("");
-  const [details, setDetails] = useState({ name: "", email: "", password: "" });
+  const [details, setDetails] = useState({ name: "", email: "", password: "" }); //user input
 
   //methods
   const logIn = (detailsInput) => {
     console.log(detailsInput);
 
-    if (detailsInput.email == adminUser.email && detailsInput.password == adminUser.password) {
+    if (detailsInput.email === adminUser.email && detailsInput.password === adminUser.password) {
       setUser({
         name: detailsInput.name,
         email: detailsInput.email
@@ -46,19 +48,31 @@ const LogIn = () => {
   return (
     <>
       <div className="loginContainer">
-        {(user.email != "") ? (
+        {(user.email !== "") ? (
+          //when the login is successfull
           <>
             <h2 className="welcome">Welcome, <span>{user.name} </span>! Have a good shopping.</h2>
-            <div className="btnDiv">
-              <Button type="button" onClick={logOut} className="logOutBtn">Log Out</Button>
-              <Button variant="primary" type="submit" className="goToHomeBtn">Go to home</Button>
+            <div className="row btnDiv">
+              <Button type="button" onClick={logOut} className="col logOutBtn">Log Out</Button>
+              {/* Route to home page */}
+              <Link
+                to={{
+                  pathname: "/home",
+                  state: {
+                    userName: user.name
+                  }
+                }}
+                className="col goToHomeBtn">
+                Go to store
+              </Link>
             </div>
 
           </>) : (
           // Show Form
           <Form onSubmit={submitHandler} className="logInForm">
             <h2>Login</h2>
-            {(error != "") ? (
+            {(error !== "") ? (
+              //when there is an error logging in 
               <>
                 <p className="errorMsg">{error}</p>
               </>
@@ -80,6 +94,10 @@ const LogIn = () => {
                 value={details.password} />
             </Form.Group>
             <Button variant="primary" type="submit" className="submitBtn">Log in</Button>
+            <Link
+              to="/account"
+              className="newAccount">
+              <FaRegArrowAltCircleRight></FaRegArrowAltCircleRight> Haven't had an account? Create one!</Link>
           </Form>
         )}
 

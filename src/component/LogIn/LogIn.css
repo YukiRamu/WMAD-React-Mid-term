@@ -24,16 +24,22 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 20vw;
+  margin: auto;
 }
 
 .loginContainer .btnDiv .logOutBtn,
 .loginContainer .btnDiv .goToHomeBtn {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  padding: 0.5rem;
+  color: white;
   background-color: #212121;
   outline: none;
   border: none;
   border-radius: unset;
   margin: 0 1rem;
-  width: 10vw;
 }
 
 .loginContainer .btnDiv .logOutBtn:focus,
@@ -64,6 +70,7 @@
   text-align: center;
   width: 100%;
   padding: 1rem 0;
+  margin-bottom: 2rem;
   border-bottom: 0.1rem groove gray;
 }
 
@@ -105,5 +112,16 @@
   background-color: #8b978b54;
   color: black;
   border: 0.1rem solid #757575;
+}
+
+.loginContainer .logInForm .newAccount {
+  text-decoration: none;
+  margin-left: 1rem;
+  color: black;
+}
+
+.loginContainer .logInForm .newAccount:hover {
+  color: #1a3a1cca;
+  border-bottom: 0.1rem solid #1a3a1cca;
 }
 /*# sourceMappingURL=LogIn.css.map */
