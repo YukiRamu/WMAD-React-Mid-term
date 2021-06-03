@@ -1,6 +1,12 @@
+import React, {useEffect, useState} from 'react';
 import './Summary.css'
 
-const Summary = () => {
+const Summary = (props) => {
+
+    const paymentProceedHandler = () =>{
+        props.goToPayment = true
+    }
+
     return (
         <>
             {/* SUMMARY */}
@@ -22,7 +28,7 @@ const Summary = () => {
                             <span className='currency'>CAD</span>
                             $742.00</span>
                     </div> */}
-                <button className='proceed-btn'>Proceed to payment</button>
+                <button onClick={paymentProceedHandler} className='proceed-btn'>Proceed to payment</button>
             </div>
         </>
     );

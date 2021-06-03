@@ -1,38 +1,43 @@
 import './Payment.css'
 
+import ShippingAddress from './ChildComponents/ShippingAddress';
+import ShippingMethod from './ChildComponents/ShippingMethod';
+import PaymentMethod from './ChildComponents/PaymentMethod';
+import BillingAddress from './ChildComponents/BillingAddress';
+
 const Payment = () => {
     return (
         <>
             <div className='payment-container'>
                 <form>
-                    <div className='contact-info'>
-                        <div className='payment-contact'>
-                            <span className='payment-contactText'>Email</span>
-                            <p className='payment-addressText'>Address</p>
-                            <button className='change-btn'>Change</button>
-                        </div>
-                        <div className='payment-address'>
-                            <span className='payment-contactText'>Ship to</span>
-                            <p className='payment-addressText'>Address</p>
-                            <button className='change-btn'>Change</button>
-                        </div>
-                    </div>
-                    <div className='payment-shipping'>
-                        <h2 className='shippingText'>Shipping method</h2>
-                        <div className='shipping-container'>
-                            <div className='checkbox-shipping'>
-                                <input className='checkbox-ship' type='radio' name='shipping'></input>
-                                <span className='checkbox-post'>Regular Post</span>
-                                <span className='checkbox-price'>$ 55.00</span>
-                            </div>
-                            <div className='checkbox-shipping2'>
-                                <input className='checkbox-ship' type='radio' name='shipping'></input>
-                                <span className='checkbox-post'>Express</span>
-                                <span className='checkbox-price'>$ 55.00</span>
-                            </div>
-                        </div>
-                    </div>
+                    <ShippingAddress />
+                    <ShippingMethod />
+                    <PaymentMethod />
+                    <BillingAddress />
                 </form>
+                <div>
+                    {/* SUMMARY */}
+                    <div id='summary' className='summary'>
+                        <h4 className='summary-text'>Summary</h4>
+                        <div className='subtotal-container'>
+                            <p className='subtotal'>Subtotal:</p>
+                            <span className='money'>$700.00</span>
+                        </div>
+                        {/* PASSAR ESSA PARTE PARA PAYMENT */}
+                        <div className='subtotal-container'>
+                        <p className='subtotal'>Shipping:</p>
+                        <span className='money'>$55.00</span>
+                    </div>
+                    <hr></hr>
+                    <div className='subtotal-container'>
+                        <p className='subtotal'>Total:</p>
+                        <span className='total-money'>
+                            <span className='currency'>CAD</span>
+                            $755.00</span>
+                    </div>
+                        <button id='payNow' className='proceed-btn'>Pay now</button>
+                    </div>
+                </div>
             </div>
         </>
     );
