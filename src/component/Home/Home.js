@@ -1,5 +1,5 @@
 /*  This component is for the homepage of our website  */
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import "./Home.css";
 import { Carousel, Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -15,8 +15,6 @@ const Home = (props) => {
   const [electronics, setElectronics] = useState([]);
   const [IsDataReady, setData] = useState(false);
   const [displayStyle, setDisplay] = useState({ "display": "none" });
-
-  const [, forceUpdate] = useState(undefined);
 
   //data fetch
   useEffect(() => {

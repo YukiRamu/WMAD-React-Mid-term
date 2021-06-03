@@ -1,8 +1,52 @@
 @import "../../colors";
 
 .newAccountContainer {
+  min-height: 90vh;
   padding-top: 60px;
+  /* account creation success */
+  .success {
+    font-family: $sub-font;
+    margin: auto;
+    margin-top: 1rem;
+    text-align: center;
+    width: 50%;
+    span {
+      color: $accent;
+    }
+  }
+  .goToHomeBtn {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    padding: 0.5rem;
+    color: $white;
+    background-color: $primary-color;
+    outline: none;
+    border: none;
+    border-radius: unset;
+    width: fit-content;
+    margin: auto;
+    margin-top: 1rem;
+    &:focus {
+      border: none;
+      outline: none;
+      box-shadow: none;
+      background-color: $accentBg;
+      color: $black;
+      border: 0.1rem solid $secondary-color;
+    }
+    &:hover {
+      background-color: $accentBg;
+      color: $black;
+      border: 0.1rem solid $secondary-color;
+    }
+  }
+
+  /* Form */
   .accountForm {
+    .errorMsg {
+      color: red;
+    }
     h2 {
       font-family: $sub-font;
       text-align: center;

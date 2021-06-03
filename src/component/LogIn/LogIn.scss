@@ -47,6 +47,9 @@
 
   /* Form */
   .logInForm {
+    .errorMsg {
+      color: red;
+    }
     h2 {
       font-family: $sub-font;
       text-align: center;

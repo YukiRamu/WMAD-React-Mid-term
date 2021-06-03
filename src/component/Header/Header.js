@@ -1,20 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FaHome, FaUser, FaShoppingCart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import "./Header.css";
 
 const Header = () => {
 
-  const [welcomeMsg, setWelcomeMsg] = useState();
-
   return (
     <>
       <header>
         <h1 className="siteTitle"><a href="/">Lifestyle Connect</a></h1>
-        
-        {/* welcome message */}
-        {/* <h2 className="welcome">Welcome, <span>name </span>Have a good shopping.</h2>
-        <Button type="button"  className="logOutBtn">Log Out</Button> */}
 
         {/* Navbar */}
         <nav className="navBar">

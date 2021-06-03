@@ -1,12 +1,64 @@
 /* Color Palette */
 /* Font Palette */
 .newAccountContainer {
+  min-height: 90vh;
   padding-top: 60px;
+  /* account creation success */
+  /* Form */
+}
+
+.newAccountContainer .success {
+  font-family: serif;
+  margin: auto;
+  margin-top: 1rem;
+  text-align: center;
+  width: 50%;
+}
+
+.newAccountContainer .success span {
+  color: #1a3a1cca;
+}
+
+.newAccountContainer .goToHomeBtn {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  padding: 0.5rem;
+  color: white;
+  background-color: #212121;
+  outline: none;
+  border: none;
+  border-radius: unset;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.newAccountContainer .goToHomeBtn:focus {
+  border: none;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: #8b978b54;
+  color: black;
+  border: 0.1rem solid #757575;
+}
+
+.newAccountContainer .goToHomeBtn:hover {
+  background-color: #8b978b54;
+  color: black;
+  border: 0.1rem solid #757575;
 }
 
 .newAccountContainer .accountForm {
   width: 50%;
   margin: auto;
+}
+
+.newAccountContainer .accountForm .errorMsg {
+  color: red;
 }
 
 .newAccountContainer .accountForm h2 {
