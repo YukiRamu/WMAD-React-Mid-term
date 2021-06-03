@@ -14,21 +14,28 @@ const LogIn = () => {
   };
 
   //state hook
-  const [user, setUser] = useState({ name: "", email: "" });
+  const [user, setUser] = useState({ name: "", email: "", password: "" });
   const [error, setError] = useState("");
-  const [details, setDetails] = useState({ name: "", email: "", password: "" }); //user input
+  const [authFlag, setAuthFlag] = useState(false);
 
   //methods
-  const logIn = (detailsInput) => {
-    console.log(detailsInput);
+  const logIn = (e) => {
+    e.preventDefault();
 
-    if (detailsInput.email === adminUser.email && detailsInput.password === adminUser.password) {
-      setUser({
-        name: detailsInput.name,
-        email: detailsInput.email
-      });
+    //check if the user info is correct
+    let storedUser = JSON.parse(localStorage.getItem("user"));
+
+    //if no account stored or user info not match
+    let matchedUser = storedUser.find(elem => {
+      return (elem.name === user.name) && (elem.email === user.email) && (elem.password === user.password);
+    });
+    console.log(matchedUser);
+
+    if ((localStorage.length === 0) || (matchedUser === undefined)) {
+      setError("Account doesn't exist.");
     } else {
-      setError("User detail is not correct");
+      console.log("user match");
+      setAuthFlag(true);
     };
   };
 
@@ -36,22 +43,19 @@ const LogIn = () => {
     console.log("log out");
     setUser({
       name: "",
-      email: ""
+      email: "",
+      password: ""
     });
-  };
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    logIn(details);
+    setAuthFlag(false);
   };
 
   return (
     <>
       <div className="loginContainer">
-        {(user.email !== "") ? (
+        {(authFlag) ? (
           //when the login is successfull
           <>
-            <h2 className="welcome">Welcome, <span>{user.name} </span>! Have a good shopping.</h2>
+            <h2 className="welcome">Welcome, <span>{user.name} </span>! Have a good shopping :)</h2>
             <div className="row btnDiv">
               <Button type="button" onClick={logOut} className="col logOutBtn">Log Out</Button>
               {/* Route to home page */}
@@ -69,10 +73,10 @@ const LogIn = () => {
 
           </>) : (
           // Show Form
-          <Form onSubmit={submitHandler} className="logInForm">
+          <Form onSubmit={logIn} className="logInForm">
             <h2>Login</h2>
             {(error !== "") ? (
-              //when there is an error logging in 
+              //Validation check:when there is an error logging in 
               <>
                 <p className="errorMsg">{error}</p>
               </>
@@ -80,18 +84,23 @@ const LogIn = () => {
             <Form.Group controlId="formGroupName">
               <Form.Label>Name:</Form.Label>
               <Form.Control type="text" placeholder="Enter your name"
-                onChange={e => { setDetails({ ...details, name: e.target.value }); setError(""); }}
-                value={details.name} />
+                onChange={e => setUser({ ...user, name: e.target.value })}
+                value={user.name}
+                onFocus={() => { setError(""); setUser({ name: "", email: "", password: "" }); }} />
             </Form.Group>
             <Form.Group controlId="formGroupEmail">
               <Form.Label>Email address:</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" onChange={e => { setDetails({ ...details, email: e.target.value }); setError(""); }}
-                value={details.email} />
+              <Form.Control type="email" placeholder="Enter email"
+                onChange={e => setUser({ ...user, email: e.target.value })}
+                value={user.email}
+                onFocus={() => { setError(""); }} />
             </Form.Group>
             <Form.Group controlId="formGroupPassword">
               <Form.Label>Password:</Form.Label>
-              <Form.Control type="password" placeholder="Password" onChange={e => { setDetails({ ...details, password: e.target.value }); setError(""); }}
-                value={details.password} />
+              <Form.Control type="password" placeholder="Password"
+                onChange={e => setUser({ ...user, password: e.target.value })}
+                value={user.password}
+                onFocus={() => { setError(""); }} />
             </Form.Group>
             <Button variant="primary" type="submit" className="submitBtn">Log in</Button>
             <Link
