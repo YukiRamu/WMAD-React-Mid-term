@@ -7,9 +7,12 @@ import {
 } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "../Home/Home";
+import ProductDetail from "../ProductDetail/ProductDetail" //Delete before you push your code
 import LogIn from "../LogIn/LogIn";
 import Account from "../Account/Account";
 import CheckOut from "../CheckOut/CheckOut";
+import Footer from "../Layout/Footer";
+import AllProducts from '../API/AllProducts';
 import ProductDetail from "../ProductDetail/ProductDetail";
 import Category from "../Category/Category";
 import Header from "../Header/Header";
@@ -22,7 +25,6 @@ const App = () => {
       {/* React Router*/}
       <Router>
         <Header />
-        
         {/* Router Switch */}
         <Switch>
               <Route exact path="/" component={Home} />
@@ -37,7 +39,6 @@ const App = () => {
               <Route path="/account" component={Account} />
         </Switch>
       </Router>
-
       {/* Footer */}
       <Footer />
     </>
