@@ -1,107 +1,46 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import Home from "../Home/Home";
 import ProductDetail from "../ProductDetail/ProductDetail" //Delete before you push your code
 import LogIn from "../LogIn/LogIn";
+import Account from "../Account/Account";
 import CheckOut from "../CheckOut/CheckOut";
 import Footer from "../Layout/Footer";
 import AllProducts from '../API/AllProducts';
-// import ProductDetail from "../ProductDetail/ProductDetail";
+import ProductDetail from "../ProductDetail/ProductDetail";
 import Category from "../Category/Category";
+import Header from "../Header/Header";
+import Footer from "../Layout/Footer";
 
 const App = () => {
-  const [allProducts, setProduct] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const fetchedData = await AllProducts();
-      console.log("fetchedData is", fetchedData);
-      setProduct(fetchedData); //set state hook
-      console.log(allProducts);
-    })();
-  }, []);
-
-  //**************************************** */
-  // Below temporarily added to code Home.js
-  //**************************************** */
-  // const [allProducts, setAllProducts] = useState([]);
-  // useEffect(() => {
-  //   fetch("https://fakestoreapi.com/products")
-  //     .then(response => {
-  //       if (response.status !== 200) {
-  //         console.log(`We have a problem! ${response.status}`);
-  //       }
-  //       response.json()
-  //         .then(data => {
-  //           setAllProducts(data);
-  //         });
-  //     })
-  //     .catch((error) => {
-  //       console.log((`Error ${error}`));
-  //     });
-  //   return () => {
-
-  //   };
-  // }, []);
-  //**************************************** */
 
   return (
     <>
-      {/* React Router : Navbar */}
+      {/* React Router*/}
       <Router>
-        <header>
-          <h1 className="siteTitle">Website Title / Logo here</h1>
-          <nav className="navBar">
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/login">Log In</Link>
-              </li>
-              <li>
-                <Link to="/checkout">Check Out</Link>
-              </li>
-            </ul>
-          </nav>
-        </header>
+        <Header />
         {/* Router Switch */}
         <Switch>
-          {allProducts.length !== 0 ? (
-            <>
-              <Route exact path="/" render={() => <Home product={allProducts} />} />
-
-              <Route path="/login">
-                <LogIn />
-              </Route>
-
-              <Route path="/checkout">
-                <CheckOut />
-              </Route>
-
-              {/* <Route path="/productDetail" component={ProductDetail} /> */}
+              <Route exact path="/" component={Home} />
+              <Route path="/home" component={Home} />
+              <Route path="/login" component={LogIn} />
+              <Route path="/checkout" component={CheckOut} />
+              <Route path="/productDetail" component={ProductDetail} />
               <Route path="/womenClothing" component={Category} />
               <Route path="/menClothing" component={Category} />
               <Route path="/jewelery" component={Category} />
               <Route path="/electronics" component={Category} />
-
-            </>
-          ) : ("")}
+              <Route path="/account" component={Account} />
         </Switch>
       </Router>
-
       {/* Footer */}
       <Footer />
-
-      {/* <ProductDetail allProducts={allProducts}/> */}
     </>
   );
 };

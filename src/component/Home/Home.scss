@@ -1,5 +1,12 @@
+@import "../../colors";
+
+.loading {
+  padding-top: 60px;
+}
+
 /* Carousel */
 .heroContentsSection {
+  padding-top: 60px;
   .carousel-inner {
     height: 80vh;
     .carousel-item {
@@ -13,10 +20,24 @@
         text-align: left;
         padding: 2rem;
         margin-left: 1rem;
-        background-color: rgba(0, 0, 0, 0.593);
+        background-color: $blackTr;
         h2 {
-          font-family: "HCo Chronicle Display", Georgia, Times, "Times New Roman", serif;
+          font-family: $title-font;
           font-size: 4rem;
+        }
+        .categoryLink {
+          display: block;
+          padding: 0.5rem;
+          margin-top: 2rem;
+          width: fit-content;
+          text-decoration: none;
+          background-color: #757575a5;
+          color: $white;
+          &:hover {
+            background-color: $primary-color;
+            color: $white;
+            border: 0.1rem solid $secondary-color;
+          }
         }
       }
     }
@@ -28,7 +49,7 @@
     .row {
       .titleCol {
         margin: 1rem;
-        height: 90vh;
+        height: 80vh;
         position: relative;
         .collectionTitleContainer {
           background-color: rgba(255, 255, 255, 0.655);
@@ -48,16 +69,16 @@
             padding: 2rem;
             h2 {
               font-weight: bold;
-              font-family: "HCo Chronicle Display", Georgia, Times, "Times New Roman", serif;
+              font-family: $title-font;
             }
           }
         }
       }
       .imgCol {
         position: relative;
-        height: 90vh;
+        height: 80vh;
         margin: 1rem;
-        background-color: #c2ad9a54;
+        background-color: $accentBg;
         // background-color: #9b9780c1;
         h4 {
           position: absolute;
@@ -65,10 +86,9 @@
           left: 5%;
           width: 70%;
           z-index: 1;
-          background-color: #b78e6ac5;
-          color: white;
-          border: 0.1rem solid #965c36;
-          font-family: "HCo Chronicle Display", Georgia, Times, "Times New Roman", serif;
+          background-color: $blackTr;
+          color: $white;
+          font-family: $title-font;
           font-size: 1.3rem;
           padding: 1rem;
         }
@@ -83,9 +103,9 @@
           height: 80%;
           // background-color: #c2ad9ac7;
           // background-color: rgba(255, 255, 255, 0.655);
+          cursor: pointer;
         }
         .imgHover {
-          //display: none;
           position: absolute;
           top: 50%;
           left: 50%;
@@ -94,24 +114,46 @@
           width: 100%;
           margin: auto;
           padding: 3rem;
-          background-color: #a76e48c8;
+          background-color: rgba(255, 255, 255, 0.841);
+          border: 0.1rem groove $accent;
           z-index: 10;
-          color: white;
+          color: $accent;
           div {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 80%;
+            flex-direction: column;
+            align-items: center;
             .viewMoreBtn {
               display: block;
-              background-color: rgba(0, 0, 0, 0.593);
-              color: white;
-              border: 0.1rem solid black;
-              padding: 1rem 1rem;
-              width: fit-content;
-              margin: auto;
+              background-color: $blackTr;
+              color: $white;
+              padding: 0.6rem;
+              width: 10vw;
               text-decoration: none;
+              margin: 1rem;
+              text-align: center;
+              &:hover {
+                background-color: $white;
+                color: $blackTr;
+                border: 0.1rem solid $accent;
+              }
+            }
+            .closeBtn {
+              background-color: $blackTr;
+              color: $white;
+              padding: 0.5rem;
+              width: 10vw;
+              margin: 1rem;
+              outline: none;
+              border: none;
+              &:hover {
+                background-color: $white;
+                color: $blackTr;
+                border: 0.1rem solid $accent;
+              }
             }
           }
         }

@@ -9,7 +9,7 @@ footer .mainFooter {
   color: #212121;
   display: -ms-grid;
   display: grid;
-  grid-template: "box1 ... box2 box3 box4" / auto  2fr 1fr 1fr 1fr;
+  grid-template: "box1 ... box2 box3 box4" / auto  2fr 1fr 1fr 1fr;
   gap: 3px;
 }
 
