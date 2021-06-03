@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FaHome, FaUser, FaShoppingCart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
 import "./Header.css";
 
 const Header = () => {

@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "ACAA,mBAAmB;AAWnB,kBAAkB;ADTlB,AAAA,IAAI,CAAC;EACH,WAAW,ECSD,UAAU;EDRpB,UAAU,EAAE,KAAK;CAClB;;AACD,AAAA,KAAK,CAAC;EACJ,UAAU,EAAE,KAAK;CAClB",
+    "mappings": "ACAA,mBAAmB;AAYnB,kBAAkB;ADVlB,AAAA,IAAI,CAAC;EACH,WAAW,ECUD,UAAU;EDTpB,UAAU,EAAE,KAAK;CAClB",
     "sources": [
         "index.scss",
         "_colors.scss"
