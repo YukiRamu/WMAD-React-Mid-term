@@ -5,7 +5,8 @@ import ShippingMethod from './ChildComponents/ShippingMethod';
 import PaymentMethod from './ChildComponents/PaymentMethod';
 import BillingAddress from './ChildComponents/BillingAddress';
 
-const Payment = () => {
+const Payment = (props) => {
+
     return (
         <>
             <div className='payment-container'>
@@ -35,7 +36,8 @@ const Payment = () => {
                             <span className='currency'>CAD</span>
                             $755.00</span>
                     </div>
-                        <button id='payNow' className='proceed-btn'>Pay now</button>
+                        <button  id='payNow' className='proceed-btn'>Pay now</button>
+                        
                     </div>
                 </div>
             </div>

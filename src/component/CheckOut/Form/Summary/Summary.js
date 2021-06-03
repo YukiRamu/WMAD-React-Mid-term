@@ -3,9 +3,9 @@ import './Summary.css'
 
 const Summary = (props) => {
 
-    const paymentProceedHandler = () =>{
-        props.goToPayment = true
-    }
+    // const paymentProceedHandler = (bool) =>{
+    //     props.onClickGetBool(bool)
+    // }
 
     return (
         <>
@@ -28,7 +28,7 @@ const Summary = (props) => {
                             <span className='currency'>CAD</span>
                             $742.00</span>
                     </div> */}
-                <button onClick={paymentProceedHandler} className='proceed-btn'>Proceed to payment</button>
+                {/* <button onClick={paymentProceedHandler(true)} className='proceed-btn'>Proceed to payment</button> */}
             </div>
         </>
     );
