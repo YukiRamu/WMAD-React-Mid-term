@@ -2,6 +2,7 @@
 /* Font Palette */
 .mainContainer {
   font-family: sans-serif;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10,6 +11,10 @@
           justify-content: space-between;
   margin: 5% 0;
   padding: 1.5rem;
+}
+
+.mainContainer .imgContainer {
+  width: 50%;
 }
 
 .mainContainer img {

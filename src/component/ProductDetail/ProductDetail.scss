@@ -4,10 +4,16 @@
 .mainContainer {
   // background-color: cadetblue; //I need to delete it
   font-family: $main-font;
+  position: relative;
   display: flex;
   justify-content: space-between;
   margin: 5% 0;
   padding: 1.5rem;
+
+  .imgContainer {
+    // position: sticky;
+    width:50%;
+  }
 
   img {
     height: auto;
@@ -55,8 +61,6 @@
         background-color: $primary-hover;
       }
     }
-
-    
 
     .description {
       background-color: #f0f0f0;
