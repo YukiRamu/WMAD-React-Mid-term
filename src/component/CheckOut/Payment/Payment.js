@@ -6,12 +6,15 @@ import PaymentMethod from './ChildComponents/PaymentMethod';
 import BillingAddress from './ChildComponents/BillingAddress';
 
 const Payment = (props) => {
+    console.log(props.formData);
+    console.log(props.formData[0].firstName);
+    const checkOutData = props.formData;
 
     return (
         <>
             <div className='payment-container'>
                 <form>
-                    <ShippingAddress />
+                    <ShippingAddress showData = {checkOutData}/>
                     <ShippingMethod />
                     <PaymentMethod />
                     <BillingAddress />
