@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React,{useState} from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,13 +15,12 @@ import Category from "../Category/Category";
 import Header from "../Header/Header";
 import Footer from "../Layout/Footer";
 
-const App = () => {
-
+const App = () => {  
   return (
     <>
       {/* React Router*/}
       <Router>
-        <Header />
+        <Header/>
         {/* Router Switch */}
         <Switch>
           <Route exact path="/" component={Home} />

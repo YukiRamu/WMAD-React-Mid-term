@@ -3,7 +3,7 @@ import { FaHome, FaUser, FaShoppingCart, FaChessQueen, FaBorderNone } from "reac
 import { Link } from 'react-router-dom';
 import "./Header.css";
 
-const Header = () => {
+const Header = (props) => {
   const [displayStyle, setDisplay] = useState({ "display": "none" });
 
   // Toggle category link
@@ -75,7 +75,7 @@ const Header = () => {
               <Link to="/login"><FaUser></FaUser> Log In</Link>
             </li>
             <li>
-              <Link to="/checkout"><FaShoppingCart></FaShoppingCart> Check Out</Link>
+              <Link to="/checkout"><FaShoppingCart></FaShoppingCart> Check Out {props.count}</Link>
             </li>
           </ul>
         </nav>

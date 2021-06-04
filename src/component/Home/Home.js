@@ -12,6 +12,12 @@ const Home = (props) => {
   const [topCollection, setTopCollection] = useState([]);//create top collection
   const [IsDataReady, setData] = useState(false);
   const [displayStyle, setDisplay] = useState({ "display": "none" });
+  const [count,setCount] = useState(0);
+
+  const updateCheckoutProduct = (dataFromChild) => {
+    alert("clicked")
+    console.log(dataFromChild);
+  }
 
   //data fetch
   useEffect(() => {
