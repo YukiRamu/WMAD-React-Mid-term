@@ -24,16 +24,13 @@ const App = () => {
         <Header />
         {/* Router Switch */}
         <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/home" component={Home} />
-              <Route path="/login" component={LogIn} />
-              <Route path="/checkout" component={CheckOut} />
-              <Route path="/productDetail" component={ProductDetail} />
-              <Route path="/womenClothing" component={Category} />
-              <Route path="/menClothing" component={Category} />
-              <Route path="/jewelery" component={Category} />
-              <Route path="/electronics" component={Category} />
-              <Route path="/account" component={Account} />
+          <Route exact path="/" component={Home} />
+          <Route path="/home" component={Home} />
+          <Route path="/login" component={LogIn} />
+          <Route path="/checkout" component={CheckOut} />
+          <Route path="/productDetail" component={ProductDetail} />
+          <Route path="/category" component={Category} />
+          <Route path="/account" component={Account} />
         </Switch>
       </Router>
       {/* Footer */}

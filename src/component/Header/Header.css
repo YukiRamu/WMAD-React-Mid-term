@@ -14,7 +14,7 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom: 0.1rem double #757575;
+  border-bottom: 0.1rem double #8b978b54;
   position: fixed;
   top: 0;
   width: 100%;
@@ -22,6 +22,9 @@ header {
   height: 60px;
   background-color: white;
   font-family: sans-serif;
+  /* Title */
+  /* Category selection link */
+  /* Nav bar */
 }
 
 header .siteTitle {
@@ -38,6 +41,30 @@ header .siteTitle a:hover {
   color: #1a3a1cca;
 }
 
+header .categoryPanel {
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  background-color: white;
+  border-bottom: 0.1rem groove #8b978b54;
+}
+
+header .categoryPanel .categoryLink {
+  text-decoration: none;
+  padding: 1rem;
+  text-align: center;
+  display: block;
+  color: #757575;
+}
+
+header .categoryPanel .categoryLink:hover {
+  color: #212121;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
 header .navBar ul {
   list-style: none;
   display: -webkit-box;
@@ -49,6 +76,7 @@ header .navBar ul {
 
 header .navBar ul li {
   margin-right: 2.5rem;
+  cursor: pointer;
 }
 
 header .navBar ul li:hover {

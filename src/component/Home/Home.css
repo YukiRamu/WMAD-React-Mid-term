@@ -2,11 +2,23 @@
 /* Font Palette */
 .loading {
   padding-top: 60px;
+  min-height: 90vh;
+  text-align: center;
+  font-family: "HCo Chronicle Display", Georgia, Times, "Times New Roman";
 }
 
 /* Carousel */
-.heroContentsSection {
-  padding-top: 60px;
+.heroContentsSection .carousel-indicators li {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: #757575;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+.heroContentsSection .carousel-indicators li.active {
+  background-color: white;
 }
 
 .heroContentsSection .carousel-inner {
