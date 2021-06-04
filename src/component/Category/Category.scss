@@ -37,6 +37,21 @@
           margin-top: 1rem;
           font-size: 1.5rem;
         }
+        .viewMoreBtn {
+          display: block;
+          background-color: $blackTr;
+          color: $white;
+          padding: 0.6rem;
+          width: 10vw;
+          text-decoration: none;
+          margin: auto;
+          text-align: center;
+          &:hover {
+            background-color: $white;
+            color: $blackTr;
+            border: 0.1rem solid $accent;
+          }
+        }
       }
     }
   }
