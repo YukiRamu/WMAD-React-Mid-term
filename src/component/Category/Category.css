@@ -1,1 +1,52 @@
-/* No CSS *//*# sourceMappingURL=Category.css.map */
+/* Color Palette */
+/* Font Palette */
+.categoryContainer {
+  min-height: 90vh;
+}
+
+.categoryContainer .title {
+  text-transform: capitalize;
+  font-family: serif;
+  text-align: center;
+  width: 100%;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 0.1rem double #8b978b54;
+}
+
+.categoryContainer .row {
+  width: 70%;
+  margin: auto;
+  grid-gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.categoryContainer .row .imgCol {
+  width: 50%;
+  height: 60vh;
+}
+
+.categoryContainer .row .imgCol img {
+  width: 100%;
+  height: 100%;
+}
+
+.categoryContainer .row .titleCol {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.593);
+  color: white;
+}
+
+.categoryContainer .row .titleCol .row {
+  width: 100%;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.categoryContainer .row .titleCol .row p {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+/*# sourceMappingURL=Category.css.map */

@@ -1,6 +1,27 @@
 import './ShoppingCart.css'
 
 const ShoppingCart = () => {
+
+    const deleteProduct = id => {
+        let currentListUsers = this.state.users;
+        let newListUsers = currentListUsers.filter(user => user.id !== id);
+        this.setState({
+            users: newListUsers
+        });
+    };
+
+    //USER MAPPING - TO USE LATER
+
+//     <div className="App">
+//     {props.users.map((user, index) => (
+//       <div key={index} className="userBorder">
+//         <p>Name: {user.name}</p>
+//         <p>Email: {user.email} </p>
+//         <p>Age: {user.age} </p>
+//       </div>
+//     ))}
+//   </div>
+
     return (
         <>
             <div>
@@ -27,7 +48,7 @@ const ShoppingCart = () => {
                         </div>
                         <div className='remove'>
                             <span className='product-text'>Remove</span>
-                            <div className='trashBin'>
+                            <div onClick={deleteProduct} className='trashBin'>
                                 {/* <img/> */}
                             </div>
                         </div>
