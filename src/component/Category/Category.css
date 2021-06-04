@@ -49,4 +49,21 @@
   margin-top: 1rem;
   font-size: 1.5rem;
 }
+
+.categoryContainer .row .titleCol .row .viewMoreBtn {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.593);
+  color: white;
+  padding: 0.6rem;
+  width: 10vw;
+  text-decoration: none;
+  margin: auto;
+  text-align: center;
+}
+
+.categoryContainer .row .titleCol .row .viewMoreBtn:hover {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.593);
+  border: 0.1rem solid #1a3a1cca;
+}
 /*# sourceMappingURL=Category.css.map */
