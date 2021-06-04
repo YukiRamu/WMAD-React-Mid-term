@@ -5,12 +5,16 @@ import ShippingMethod from './ChildComponents/ShippingMethod';
 import PaymentMethod from './ChildComponents/PaymentMethod';
 import BillingAddress from './ChildComponents/BillingAddress';
 
-const Payment = () => {
+const Payment = (props) => {
+    console.log(props.formData);
+    console.log(props.formData[0].firstName);
+    const checkOutData = props.formData;
+
     return (
         <>
             <div className='payment-container'>
                 <form>
-                    <ShippingAddress />
+                    <ShippingAddress showData = {checkOutData}/>
                     <ShippingMethod />
                     <PaymentMethod />
                     <BillingAddress />
@@ -35,7 +39,8 @@ const Payment = () => {
                             <span className='currency'>CAD</span>
                             $755.00</span>
                     </div>
-                        <button id='payNow' className='proceed-btn'>Pay now</button>
+                        <button  id='payNow' className='proceed-btn'>Pay now</button>
+                        
                     </div>
                 </div>
             </div>
