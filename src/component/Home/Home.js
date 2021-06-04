@@ -15,6 +15,12 @@ const Home = (props) => {
   const [electronics, setElectronics] = useState([]);
   const [IsDataReady, setData] = useState(false);
   const [displayStyle, setDisplay] = useState({ "display": "none" });
+  const [count,setCount] = useState(0);
+
+  const updateCheckoutProduct = (dataFromChild) => {
+    alert("clicked")
+    console.log(dataFromChild);
+  }
 
   //data fetch
   useEffect(() => {
@@ -239,7 +245,7 @@ const Home = (props) => {
                           to={{
                             pathname: "/productDetail",
                             state: {
-                              product: topCollection[0],
+                              product: [topCollection[1],"test"]
                             },
                           }}
                           className="viewMoreBtn">View more</Link>
@@ -261,7 +267,7 @@ const Home = (props) => {
                           to={{
                             pathname: "/productDetail",
                             state: {
-                              product: topCollection[1],
+                              product: topCollection[1]
                             },
                           }}
                           className="viewMoreBtn">View more</Link>
@@ -281,6 +287,7 @@ const Home = (props) => {
                             pathname: "/productDetail",
                             state: {
                               product: topCollection[2],
+                            
                             },
                           }}
                           className="viewMoreBtn">View more</Link>
@@ -299,7 +306,8 @@ const Home = (props) => {
                           to={{
                             pathname: "/productDetail",
                             state: {
-                              product: topCollection[3],
+                              product: topCollection[3]
+                            
                             },
                           }}
                           className="viewMoreBtn">View more</Link>

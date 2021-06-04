@@ -3,7 +3,7 @@ import { FaHome, FaUser, FaShoppingCart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import "./Header.css";
 
-const Header = () => {
+const Header = (props) => {
 
   return (
     <>
@@ -20,7 +20,7 @@ const Header = () => {
               <Link to="/login"><FaUser></FaUser> Log In</Link>
             </li>
             <li>
-              <Link to="/checkout"><FaShoppingCart></FaShoppingCart> Check Out</Link>
+              <Link to="/checkout"><FaShoppingCart></FaShoppingCart> Check Out {props.count}</Link>
             </li>
           </ul>
         </nav>

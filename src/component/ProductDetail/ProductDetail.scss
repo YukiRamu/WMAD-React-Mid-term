@@ -6,11 +6,13 @@
   font-family: $main-font;
   display: flex;
   justify-content: space-between;
+  margin: 5% 0;
   padding: 1.5rem;
 
   img {
-    height: 755px;
-    width: auto;
+    height: auto;
+    width: 600px;
+    margin-right: 3rem;
   }
 
   .detailsContainer{

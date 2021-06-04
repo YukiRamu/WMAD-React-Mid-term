@@ -8,12 +8,14 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin: 5% 0;
   padding: 1.5rem;
 }
 
 .mainContainer img {
-  height: 755px;
-  width: auto;
+  height: auto;
+  width: 600px;
+  margin-right: 3rem;
 }
 
 .mainContainer .detailsContainer {
@@ -29,7 +31,7 @@
 
 .mainContainer .detailsContainer h2 {
   font-family: serif;
-  color: #005B90;
+  color: #005b90;
 }
 
 .mainContainer .detailsContainer h2:hover {

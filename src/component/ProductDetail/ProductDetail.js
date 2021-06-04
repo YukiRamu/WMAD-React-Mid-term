@@ -5,30 +5,33 @@ import { IoCartOutline } from "react-icons/io5";
 
 const ProductDetail = (props) => {
 
- console.log("product detail new", props.allProducts[0].title)
 
- let ProductData = props.allProducts[0];
-//  console.log("ProductToday",ProductData)
+//  function myFunction() {
+//   alert("Your file is being uploaded!")
+// }
+
 
   return (
-  
     <>
+
     <div className="mainContainer">
       <div className="imgContainer">
-       <img src={ProductData.image}></img>
+       <img src={props.location.state.product.image}/>
       </div>
       <div className="detailsContainer">
          <div>
-           <h2>{ProductData.title}</h2>
-           <h6>{ProductData.category}</h6>
-           <h5>${ProductData.price} CAD</h5>
-           <button>Add To Cart <IoCartOutline/></button>
+           <h2>{props.location.state.product.title}</h2>
+           <h6>{props.location.state.product.category}</h6>
+           <h5>${props.location.state.product.price} CAD</h5>
+           <button onClick={
+             props.location.state.handleUpdate
+           }>Add To Cart  <IoCartOutline/></button>
         </div>
         <div className="description">
-           <h6>{ProductData.title}</h6>
+           <h6>{props.location.state.product.title}</h6>
            <span>Details:</span>
            <br></br>
-           <p>{ProductData.description}</p>
+           <p>{props.location.state.product.description}</p>
         </div>
       </div>
     </div>
