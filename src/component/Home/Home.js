@@ -30,26 +30,30 @@ const Home = () => {
   useEffect(() => {
     getTopCollection();
     setData(true);
-    setUserReady(true);
     console.log("all product ", allProducts, IsDataReady);
-    console.log("all designer", allDesigners, IsUserReady);
-  }, [allProducts, allDesigners]);
+  }, [allProducts]);
 
-  const mapHTML = () => {
-    return allDesigners.map((elem, index) => {
-      <>
-        <Card>
-          <Card.Img variant="top" src="./img/designer1.jpg" alt="designer1" className="designerImg" />
-          <Card.Body>
-            {/* <Card.Title>{elem[index].name}</Card.Title> NOT DISPLAY!!!!*/}
-            <Card.Text>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae culpa earum libero porro, modi ipsum laudantium quasi quod pariatur, deleniti assumenda atque nesciunt! Voluptatum ex dignissimos numquam vitae unde?
-          </Card.Text>
-          </Card.Body>
-        </Card>
-      </>;
-    });
-  };
+  useEffect(() => {
+    setUserReady(true);
+    console.log("all designer", allDesigners, IsUserReady);
+  }, [allDesigners]);
+  
+
+  // const mapHTML = () => {
+  //   return allDesigners.map((elem, index) => {
+  //     <>
+  //       <Card>
+  //         <Card.Img variant="top" src="./img/designer1.jpg" alt="designer1" className="designerImg" />
+  //         <Card.Body>
+  //           {/* <Card.Title>{elem[index].name}</Card.Title> NOT DISPLAY!!!!*/}
+  //           <Card.Text>
+  //             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae culpa earum libero porro, modi ipsum laudantium quasi quod pariatur, deleniti assumenda atque nesciunt! Voluptatum ex dignissimos numquam vitae unde?
+  //         </Card.Text>
+  //         </Card.Body>
+  //       </Card>
+  //     </>;
+  //   });
+  // };
 
   /* Top Collection - randomly show four items */
   const getTopCollection = () => {
@@ -290,11 +294,12 @@ const Home = () => {
                   <Card.Title>{allDesigners[0].name}</Card.Title>
                   <Card.Text>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae culpa earum libero porro, modi ipsum laudantium quasi quod pariatur, deleniti assumenda atque nesciunt! Voluptatum ex dignissimos numquam vitae unde?
-                        </Card.Text>
+                 </Card.Text>
                 </Card.Body>
               </Card>
             </CardGroup>
           </section>
+
         </>
       ) : <h1 className="loading">Loading.... Hang on a sec....</h1>}
     </>
