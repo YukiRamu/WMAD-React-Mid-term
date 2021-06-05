@@ -22,41 +22,41 @@ const Category = (props) => {
         <h2 className="title">{props.location.state.parameter}</h2>
         {/* looping to create html */}
         {(() => {
-          return filteredProduct.map((value, index) =>
+          return filteredProduct.map((elem, index) =>
             (index % 2 !== 0) ?
               <>
-                <Row key={filteredProduct[index].id} className="oddNum">
+                <Row key={elem.id} className="oddNum">
                   <Col className="titleCol">
                     <Row>
-                      <h3>{filteredProduct[index].title}</h3>
-                      <p>${filteredProduct[index].price} CAD</p>
+                      <h3>{elem.title}</h3>
+                      <p>${elem.price} CAD</p>
                       {/* Route to Detail page */}
                       <Link
                         to={{
                           pathname: "/productDetail",
                           state: {
-                            product: filteredProduct[index],
+                            product: elem,
                           },
                         }}
                         className="viewMoreBtn">View more</Link>
                     </Row>
                   </Col>
-                  <Col className="imgCol"><img src={filteredProduct[index].image} alt="productPhoto" /></Col>
+                  <Col className="imgCol"><img src={elem.image} alt="productPhoto" /></Col>
                 </Row>
               </>
               : <>
-                <Row key={filteredProduct[index].id} className="evenNum">
-                  <Col className="imgCol"><img src={filteredProduct[index].image} alt="productPhoto" /></Col>
+                <Row key={elem.id} className="evenNum">
+                  <Col className="imgCol"><img src={elem.image} alt="productPhoto" /></Col>
                   <Col className="titleCol">
                     <Row>
-                      <h3>{filteredProduct[index].title}</h3>
-                      <p>${filteredProduct[index].price} CAD</p>
+                      <h3>{elem.title}</h3>
+                      <p>${elem.price} CAD</p>
                       {/* Route to Detail page */}
                       <Link
                         to={{
                           pathname: "/productDetail",
                           state: {
-                            product: filteredProduct[index],
+                            product: elem,
                           },
                         }}
                         className="viewMoreBtn">View more</Link>

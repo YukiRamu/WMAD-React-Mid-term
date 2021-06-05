@@ -3,7 +3,7 @@ import { FaHome, FaUser, FaShoppingCart, FaChessQueen } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import "./Header.css";
 
-const Header = (props) => {
+const Header = () => {
   const [displayStyle, setDisplay] = useState({ "display": "none" });
 
   // Toggle category link

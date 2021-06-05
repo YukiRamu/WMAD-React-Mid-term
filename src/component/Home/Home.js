@@ -6,14 +6,13 @@ import { Link } from 'react-router-dom';
 import AllProducts from '../API/AllProducts';
 import AllUsers from '../API/AllUsers';
 import FadeIn from 'react-fade-in';
+import { FaRegAddressCard, FaChessKing, FaPagelines } from "react-icons/fa";
 
 const Home = () => {
   /* State Hook */
   const [allProducts, setProduct] = useState([]);
   const [allDesigners, setDesigner] = useState([]);
   const [topCollection, setTopCollection] = useState([]);//create top collection
-  const [IsDataReady, setData] = useState(false);
-  const [IsUserReady, setUserReady] = useState(false);
   const [displayStyle, setDisplay] = useState({ "display": "none" });
 
   //data fetch
@@ -23,43 +22,21 @@ const Home = () => {
       const productData = await AllProducts();
       setDesigner(designerData);
       setProduct(productData);
+      getTopCollection();
+      console.log(designerData);
     })();
   }, []);
 
   //prepare state hook
   useEffect(() => {
     getTopCollection();
-    setData(true);
-    console.log("all product ", allProducts, IsDataReady);
   }, [allProducts]);
-
-  useEffect(() => {
-    setUserReady(true);
-    console.log("all designer", allDesigners, IsUserReady);
-  }, [allDesigners]);
-  
-
-  // const mapHTML = () => {
-  //   return allDesigners.map((elem, index) => {
-  //     <>
-  //       <Card>
-  //         <Card.Img variant="top" src="./img/designer1.jpg" alt="designer1" className="designerImg" />
-  //         <Card.Body>
-  //           {/* <Card.Title>{elem[index].name}</Card.Title> NOT DISPLAY!!!!*/}
-  //           <Card.Text>
-  //             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae culpa earum libero porro, modi ipsum laudantium quasi quod pariatur, deleniti assumenda atque nesciunt! Voluptatum ex dignissimos numquam vitae unde?
-  //         </Card.Text>
-  //         </Card.Body>
-  //       </Card>
-  //     </>;
-  //   });
-  // };
 
   /* Top Collection - randomly show four items */
   const getTopCollection = () => {
     let copiedProps = allProducts.slice();
     let selectedTopPicks = [];
-    while ((selectedTopPicks.length < 4) && (copiedProps.length > 0)) {
+    while ((selectedTopPicks.length < 5) && (copiedProps.length > 0)) {
       selectedTopPicks.push(copiedProps[Math.floor(Math.random() * copiedProps.length)]);//randomly push 
       copiedProps.splice(Math.floor(Math.random() * copiedProps.length), 1); //delete the target
     }
@@ -81,7 +58,7 @@ const Home = () => {
 
   return (
     <>
-      {((IsDataReady) && (IsUserReady)) ? (
+      {((!allProducts.length == 0) && (!allDesigners.length == 0)) ? (
         //when data is ready
         <>
           {/* Hero Contents */}
@@ -256,7 +233,7 @@ const Home = () => {
                     const html = [];
                     for (let i = 1; i < topCollection.length; i++) {
                       html.push(
-                        <Col className="imgCol" key={topCollection[i].id}>
+                        <Col className="imgCol rowTwo" key={topCollection[i].id}>
                           <h4>{topCollection[i].title}</h4>
                           <img src={topCollection[i].image} alt="itemPhoto" className="topCollectionImg" onClick={showDescription} />
                           <div className="imgHover" style={displayStyle}>
@@ -288,18 +265,44 @@ const Home = () => {
           <section className="designers">
             <h2 className="title">Our Designers</h2>
             <CardGroup>
-              <Card>
-                <Card.Img variant="top" src="./img/designer1.jpg" alt="designer1" className="designerImg" />
-                <Card.Body>
-                  <Card.Title>{allDesigners[0].name}</Card.Title>
-                  <Card.Text>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae culpa earum libero porro, modi ipsum laudantium quasi quod pariatur, deleniti assumenda atque nesciunt! Voluptatum ex dignissimos numquam vitae unde?
-                 </Card.Text>
-                </Card.Body>
-              </Card>
+              {/* first ppl */}
+              <Row className="topRow">
+                <Card key={allDesigners[0].id} className="col">
+                  <Card.Img variant="top" src="./img/zero.jpg" alt="designer0" className="designerTop" />
+                  <Card.Body>
+                    <Card.Title>{allDesigners[0].name}</Card.Title>
+                    <Card.Text><FaChessKing></FaChessKing> <span> Company: </span> {allDesigners[0].company.name}</Card.Text>
+                    <Card.Text><FaPagelines></FaPagelines> <span> Web site: </span> {allDesigners[0].website}</Card.Text>
+                    <Card.Text>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae culpa earum libero porro, modi ipsum laudantium quasi quod pariatur.
+                    </Card.Text>
+                    <Card.Text><FaRegAddressCard></FaRegAddressCard> <span> Contacts: </span> {allDesigners[0].email}</Card.Text>
+                  </Card.Body>
+                </Card>
+              </Row>
+              {/* next four ppl */}
+              {(() => {
+                let html = [];
+                for (let i = 1; i < 5; i++) {
+                  html.push(
+                    <Card key={allDesigners[i].id} className="col">
+                      <Card.Img variant="top" src={`./img/designer${i}.jpg`} alt={`designer${i}`} className="designerImg" />
+                      <Card.Body>
+                        <Card.Title>{allDesigners[i].name}</Card.Title>
+                        <Card.Text><FaChessKing></FaChessKing> <span> Company: </span>{allDesigners[i].company.name}</Card.Text>
+                        <Card.Text><FaPagelines></FaPagelines> <span> Web site: </span>{allDesigners[i].website}</Card.Text>
+                        <Card.Text>
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae culpa earum libero porro, modi ipsum laudantium quasi quod pariatur.
+                        </Card.Text>
+                        <Card.Text><FaRegAddressCard></FaRegAddressCard> <span> Contacts: </span>{allDesigners[i].email}</Card.Text>
+                      </Card.Body>
+                    </Card>
+                  );
+                }
+                return <Row>{html}</Row>;
+              })()}
             </CardGroup>
           </section>
-
         </>
       ) : <h1 className="loading">Loading.... Hang on a sec....</h1>}
     </>
