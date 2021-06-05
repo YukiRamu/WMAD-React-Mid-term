@@ -9,7 +9,6 @@
 
 /* Carousel */
 .heroContentsSection {
-  //padding-top: 60px;
   .carousel-indicators {
     li {
       height: 15px;
@@ -129,19 +128,23 @@
           height: 100%;
           width: 100%;
           margin: auto;
-          padding: 3rem;
           background-color: rgba(255, 255, 255, 0.841);
           border: 0.1rem groove $accent;
           z-index: 10;
           color: $accent;
+          overflow-y: auto;
           div {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 80%;
+            width: 100%;
+            margin: auto;
             flex-direction: column;
             align-items: center;
+            p {
+              text-align: justify;
+            }
             .viewMoreBtn {
               display: block;
               background-color: $blackTr;
@@ -170,6 +173,70 @@
                 color: $blackTr;
                 border: 0.1rem solid $accent;
               }
+            }
+          }
+        }
+      }
+      .rowTwo {
+        height: 70vh;
+      }
+    }
+  }
+}
+/* Desingers */
+.designers {
+  margin-top: 3rem;
+  .title {
+    text-transform: capitalize;
+    font-family: $sub-font;
+    text-align: center;
+    width: 100%;
+    padding: 1rem 0;
+    border-top: 0.1rem double $accentBg;
+    border-bottom: 0.1rem double $accentBg;
+  }
+  .card-group {
+    padding: 1rem 2rem;
+    grid-gap: 1rem;
+    .topRow {
+      margin: auto;
+      width: 80%;
+      .card {
+        flex-direction: row;
+        border: none;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        .designerTop {
+          width: 30%;
+          height: 100%;
+        }
+        .card-body {
+          .card-title {
+            font-size: 2rem;
+          }
+          .card-text {
+            span {
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+    .row {
+      grid-gap: 1rem;
+      .card {
+        border: none;
+        padding: 0;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        .designerImg {
+          height: 70%;
+        }
+        .card-body {
+          .card-title {
+            font-size: 2rem;
+          }
+          .card-text {
+            span {
+              font-weight: bold;
             }
           }
         }
