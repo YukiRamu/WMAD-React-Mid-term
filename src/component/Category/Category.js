@@ -3,6 +3,7 @@ import "./Category.css";
 import FilterByCategory from '../API/FilterByCategory';
 import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import FadeIn from 'react-fade-in';
 
 const Category = (props) => {
   const [filteredProduct, setFilteredProduct] = useState([]);
@@ -17,11 +18,6 @@ const Category = (props) => {
       if (isMounted) setFilteredProduct(data);
     })();
   }, [props.location.state.parameter]);
-
-  const clickHandler = (e) => {
-    console.log("view more clicked");
-    console.log(e);
-  };
 
   //Change the layout based of the index (odd or even)
   const mapHTML = () =>
@@ -68,7 +64,7 @@ const Category = (props) => {
           </Row>
         </>);
 
-  return <section className="categoryContainer"><h2 className="title">{props.location.state.parameter}</h2>{mapHTML()}</section>;
+  return <FadeIn><section className="categoryContainer"><h2 className="title">{props.location.state.parameter}</h2>{mapHTML()}</section></FadeIn>;
 };
 
 export default Category;
