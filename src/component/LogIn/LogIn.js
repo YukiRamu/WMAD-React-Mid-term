@@ -7,13 +7,6 @@ import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import FadeIn from 'react-fade-in';
 
 const LogIn = () => {
-
-  //authorised admin user
-  const adminUser = {
-    email: "admin@gmail.com",
-    password: "admin123"
-  };
-
   //state hook
   const [user, setUser] = useState({ name: "", email: "", password: "" });
   const [error, setError] = useState("");

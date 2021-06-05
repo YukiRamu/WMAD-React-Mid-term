@@ -15,7 +15,6 @@ const ProductDetail = (props) => {
       // console.log('hi')
       localStorage.setItem("product",JSON.stringify([props.location.state.product]));
     } else {
-      alert('You added this item')
       let product = JSON.parse(localStorage.getItem("product"));
       product.push(props.location.state.product);
       localStorage.setItem("product",JSON.stringify(product));

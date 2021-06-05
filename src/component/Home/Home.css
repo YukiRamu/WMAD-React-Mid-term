@@ -198,4 +198,29 @@
   color: rgba(0, 0, 0, 0.593);
   border: 0.1rem solid #1a3a1cca;
 }
+
+/* Desingers */
+.designers {
+  margin-top: 3rem;
+}
+
+.designers .title {
+  text-transform: capitalize;
+  font-family: serif;
+  text-align: center;
+  width: 100%;
+  padding: 1rem 0;
+  border-top: 0.1rem double #8b978b54;
+  border-bottom: 0.1rem double #8b978b54;
+}
+
+.designers .card-group {
+  padding: 1rem 2rem;
+  grid-gap: 1rem;
+}
+
+.designers .card-group .card .designerImg {
+  width: 100%;
+  height: 100%;
+}
 /*# sourceMappingURL=Home.css.map */

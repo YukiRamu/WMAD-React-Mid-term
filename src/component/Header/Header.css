@@ -41,6 +41,11 @@ header .siteTitle a:hover {
   color: #1a3a1cca;
 }
 
+header .siteTitle a .logo {
+  width: 55px;
+  height: 40px;
+}
+
 header .categoryPanel {
   position: absolute;
   top: 60px;

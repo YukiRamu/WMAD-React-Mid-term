@@ -1,5 +1,5 @@
 import './App.css';
-import React,{useState} from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,26 +14,31 @@ import ProductDetail from "../ProductDetail/ProductDetail";
 import Category from "../Category/Category";
 import Header from "../Header/Header";
 import Footer from "../Layout/Footer";
+import ScrollToTop from "../Router/ScrollToTop";
 
-const App = () => {  
+const App = () => {
   return (
     <>
       {/* React Router*/}
       <Router>
-        <Header/>
-        {/* Router Switch */}
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/home" component={Home} />
-          <Route path="/login" component={LogIn} />
-          <Route path="/checkout" component={CheckOut} />
-          <Route path="/productDetail" component={ProductDetail} />
-          <Route path="/category" component={Category} />
-          <Route path="/account" component={Account} />
-        </Switch>
+        {/* Scroll to Top */}
+        <ScrollToTop>
+          {/* Header */}
+          <Header />
+          {/* Router Switch */}
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/home" component={Home} />
+            <Route path="/login" component={LogIn} />
+            <Route path="/checkout" component={CheckOut} />
+            <Route path="/productDetail" component={ProductDetail} />
+            <Route path="/category" component={Category} />
+            <Route path="/account" component={Account} />
+          </Switch>
+          {/* Footer */}
+          <Footer />
+        </ScrollToTop>
       </Router>
-      {/* Footer */}
-      <Footer />
     </>
   );
 };

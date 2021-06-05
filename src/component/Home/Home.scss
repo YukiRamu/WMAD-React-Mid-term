@@ -9,7 +9,6 @@
 
 /* Carousel */
 .heroContentsSection {
-  //padding-top: 60px;
   .carousel-indicators {
     li {
       height: 15px;
@@ -173,6 +172,29 @@
             }
           }
         }
+      }
+    }
+  }
+}
+/* Desingers */
+.designers {
+  margin-top: 3rem;
+  .title {
+    text-transform: capitalize;
+    font-family: $sub-font;
+    text-align: center;
+    width: 100%;
+    padding: 1rem 0;
+    border-top: 0.1rem double $accentBg;
+    border-bottom: 0.1rem double $accentBg;
+  }
+  .card-group {
+    padding: 1rem 2rem;
+    grid-gap: 1rem;
+    .card {
+      .designerImg {
+        width: 100%;
+        height: 100%;
       }
     }
   }

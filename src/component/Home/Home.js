@@ -1,29 +1,28 @@
 /*  This component is for the homepage of our website  */
 import React, { useState, useEffect } from "react";
 import "./Home.css";
-import { Carousel, Container, Row, Col } from 'react-bootstrap';
+import { Carousel, Container, Row, Col, Card, CardGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import AllProducts from '../API/AllProducts';
+import AllUsers from '../API/AllUsers';
 import FadeIn from 'react-fade-in';
 
-const Home = (props) => {
+const Home = () => {
   /* State Hook */
   const [allProducts, setProduct] = useState([]);
+  const [allDesigners, setDesigner] = useState([]);
   const [topCollection, setTopCollection] = useState([]);//create top collection
   const [IsDataReady, setData] = useState(false);
+  const [IsUserReady, setUserReady] = useState(false);
   const [displayStyle, setDisplay] = useState({ "display": "none" });
-  const [count,setCount] = useState(0);
-
-  const updateCheckoutProduct = (dataFromChild) => {
-    alert("clicked")
-    console.log(dataFromChild);
-  }
 
   //data fetch
   useEffect(() => {
     (async () => {
-      const data = await AllProducts();
-      setProduct(data);
+      const designerData = await AllUsers();
+      const productData = await AllProducts();
+      setDesigner(designerData);
+      setProduct(productData);
     })();
   }, []);
 
@@ -31,7 +30,26 @@ const Home = (props) => {
   useEffect(() => {
     getTopCollection();
     setData(true);
-  }, [allProducts]);
+    setUserReady(true);
+    console.log("all product ", allProducts, IsDataReady);
+    console.log("all designer", allDesigners, IsUserReady);
+  }, [allProducts, allDesigners]);
+
+  const mapHTML = () => {
+    return allDesigners.map((elem, index) => {
+      <>
+        <Card>
+          <Card.Img variant="top" src="./img/designer1.jpg" alt="designer1" className="designerImg" />
+          <Card.Body>
+            {/* <Card.Title>{elem[index].name}</Card.Title> NOT DISPLAY!!!!*/}
+            <Card.Text>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae culpa earum libero porro, modi ipsum laudantium quasi quod pariatur, deleniti assumenda atque nesciunt! Voluptatum ex dignissimos numquam vitae unde?
+          </Card.Text>
+          </Card.Body>
+        </Card>
+      </>;
+    });
+  };
 
   /* Top Collection - randomly show four items */
   const getTopCollection = () => {
@@ -59,7 +77,7 @@ const Home = (props) => {
 
   return (
     <>
-      {(IsDataReady) ? (
+      {((IsDataReady) && (IsUserReady)) ? (
         //when data is ready
         <>
           {/* Hero Contents */}
@@ -190,6 +208,7 @@ const Home = (props) => {
             {topCollection.length !== 0 ? (
               <FadeIn>
                 <Container fluid>
+                  {/* Title and first element only */}
                   <Row>
                     <Col
                       className="titleCol"
@@ -228,73 +247,53 @@ const Home = (props) => {
                     </Col>
                   </Row>
 
-                  <Row>
-                    <Col className="imgCol">
-                      <h4>{topCollection[1].title}</h4>
-                      <img src={topCollection[1].image} alt="item2" className="topCollectionImg" onClick={showDescription} />
-                      <div className="imgHover" style={displayStyle}>
-                        <Row>
-                          <p>{topCollection[1].description}</p>
-                          {/* Route to Detail page */}
-                          <Link
-                            to={{
-                              pathname: "/productDetail",
-                              state: {
-                                product: topCollection[1],
-                              },
-                            }}
-                            className="viewMoreBtn">View more</Link>
-                          <button type="button" className="closeBtn" onClick={hideDescription}>Close</button>
-                        </Row>
-                      </div>
-                    </Col>
-                    <Col className="imgCol">
-                      <h4>{topCollection[2].title}</h4>
-                      <img src={topCollection[2].image} alt="item3" className="topCollectionImg" onClick={showDescription} />
-                      <div className="imgHover" style={displayStyle}>
-                        <Row>
-                          <p>{topCollection[2].description}</p>
-                          {/* Route to Detail page */}
-                          <Link
-                            to={{
-                              pathname: "/productDetail",
-                              state: {
-                                product: topCollection[2],
-                              },
-                            }}
-                            className="viewMoreBtn">View more</Link>
-                          <button type="button" className="closeBtn" onClick={hideDescription}>Close</button>
-                        </Row>
-                      </div>
-                    </Col>
-                    <Col className="imgCol">
-                      <h4>{topCollection[3].title}</h4>
-                      <img src={topCollection[3].image} alt="item4" className="topCollectionImg" onClick={showDescription} />
-                      <div className="imgHover" style={displayStyle}>
-                        <Row>
-                          <p>{topCollection[3].description}</p>
-                          {/* Route to Detail page */}
-                          <Link
-                            to={{
-                              pathname: "/productDetail",
-                              state: {
-                                product: topCollection[3],
-                              },
-                            }}
-                            className="viewMoreBtn">View more</Link>
-                          <button type="button" className="closeBtn" onClick={hideDescription}>Close</button>
-                        </Row>
-                      </div>
-                    </Col>
-                  </Row>
+                  {/* Top Collection : second to last elements : looping */}
+                  {(() => {
+                    const html = [];
+                    for (let i = 1; i < topCollection.length; i++) {
+                      html.push(
+                        <Col className="imgCol" key={topCollection[i].id}>
+                          <h4>{topCollection[i].title}</h4>
+                          <img src={topCollection[i].image} alt="itemPhoto" className="topCollectionImg" onClick={showDescription} />
+                          <div className="imgHover" style={displayStyle}>
+                            <Row>
+                              <p>{topCollection[i].description}</p>
+                              {/* Route to Detail page */}
+                              <Link
+                                to={{
+                                  pathname: "/productDetail",
+                                  state: {
+                                    product: topCollection[i],
+                                  },
+                                }}
+                                className="viewMoreBtn">View more</Link>
+                              <button type="button" className="closeBtn" onClick={hideDescription}>Close</button>
+                            </Row>
+                          </div>
+                        </Col>
+                      );
+                    }
+                    return <Row>{html}</Row>;
+                  })()}
                 </Container>
               </FadeIn>
             ) : ""}
           </section>
 
-          {/* Brand Highlight */}
-          <section className="brandHighlight">
-            <img src="" alt="" />
+          {/* Desinger */}
+          <section className="designers">
+            <h2 className="title">Our Designers</h2>
+            <CardGroup>
+              <Card>
+                <Card.Img variant="top" src="./img/designer1.jpg" alt="designer1" className="designerImg" />
+                <Card.Body>
+                  <Card.Title>{allDesigners[0].name}</Card.Title>
+                  <Card.Text>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae culpa earum libero porro, modi ipsum laudantium quasi quod pariatur, deleniti assumenda atque nesciunt! Voluptatum ex dignissimos numquam vitae unde?
+                        </Card.Text>
+                </Card.Body>
+              </Card>
+            </CardGroup>
           </section>
         </>
       ) : <h1 className="loading">Loading.... Hang on a sec....</h1>}

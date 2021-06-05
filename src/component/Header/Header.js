@@ -8,7 +8,6 @@ const Header = (props) => {
 
   // Toggle category link
   const toggleLink = () => {
-    console.log(displayStyle);
     if (displayStyle.display === "none") {
       setDisplay({ "display": "block" });
     } else {
@@ -19,7 +18,8 @@ const Header = (props) => {
   return (
     <>
       <header>
-        <h1 className="siteTitle"><a href="/">Lifestyle Connect</a></h1>
+        <h1 className="siteTitle"><a href="/">
+          <img src="./img/logo.jpg" alt="logo" className="logo" />Lifestyle Connect</a></h1>
 
         {/* Category cascade style links */}
         <div className="categoryPanel" style={displayStyle}>
