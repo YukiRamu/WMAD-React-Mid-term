@@ -1,8 +1,8 @@
 const ShippingAddress = (props) => {
 
     console.log("IN SHIPPING ADDRES");
-    console.log(props.showData);
-    console.log(props.showData[0].firstName);
+    // console.log(props.showData);
+    // console.log(props.showData[0].firstName);
 
     return (
         <>

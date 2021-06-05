@@ -14,6 +14,8 @@
   margin: 0.5rem;
 }
 
+/* ON SHIPPING */
+
 #ship {
   border-right: 1px solid gray;
   padding-right: 1rem;
@@ -31,4 +33,11 @@
 #pay:hover{
   cursor: pointer;
   text-decoration: underline;
+}
+
+/* ON PAYMENT */
+
+#ship2 {
+  border-left: 1px solid gray;
+  padding-left: 1rem;
 }

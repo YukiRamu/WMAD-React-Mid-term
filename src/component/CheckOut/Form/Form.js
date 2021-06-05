@@ -11,6 +11,8 @@ const Form = (props) => {
     const [enteredAddress, setEnteredAddress] = useState('');
     const [enteredCity, setEnteredCity] = useState('');
     const [enteredProvince, setEnteredProvince] = useState('');
+    const [enteredPostal, setEnteredPostal] = useState('');
+    const [enteredPhone, setEnteredPhone] = useState('');
 
 
 
@@ -39,34 +41,47 @@ const Form = (props) => {
         e.preventDefault();
         setEnteredProvince(e.target.value);
     }
+    const postalChangeHandler = (e) => {
+        e.preventDefault();
+        setEnteredPostal(e.target.value);
+    }
+    const phoneChangeHandler = (e) => {
+        e.preventDefault();
+        setEnteredPhone(e.target.value);
+    }
+
 
     const submitHandler = (e) => {
         e.preventDefault();
 
-        const formData = {
-            email: enteredEmail,
-            firstName: enteredFirstName,
-            secondName: enteredSecondName,
-            address: enteredAddress,
-            city: enteredCity,
-            state: enteredProvince
+        if (enteredEmail === "" || enteredFirstName === "" || enteredSecondName === ""
+            || enteredAddress === "" || enteredCity === "" || enteredProvince === "" || enteredPostal === "" || enteredPhone === "") {
+            alert('Invaled data! Please check your informations and try again.')
+        } else {
+            const formData = {
+                email: enteredEmail,
+                firstName: enteredFirstName,
+                secondName: enteredSecondName,
+                address: enteredAddress,
+                city: enteredCity,
+                state: enteredProvince
+            }
+
+            console.log("Your are in Handler");
+            console.log(formData);
+            props.goToPayment(formData, true);
+
+            setEnteredEmail('');
+            setEnteredFirst('');
+            setEnteredSecond('');
+            setEnteredAddress('');
+            setEnteredCity('');
+            setEnteredProvince('');
         }
-
-        console.log("Your are in Handler");
-        console.log(formData);
-        props.goToPayment(formData, true);
-
-        setEnteredEmail('');
-        setEnteredFirst('');
-        setEnteredSecond('');
-        setEnteredAddress('');
-        setEnteredCity('');
-        setEnteredProvince('');
     };
 
     return (
         <>
-            {/* FORM */}
             <div className='form-container'>
                 <div className='form'>
                     <form onSubmit={submitHandler}>
@@ -75,6 +90,7 @@ const Form = (props) => {
                             <span className='account'>Already have an account? </span>
                             <a className='account-a'> Log In</a>
                         </div>
+                        {/* EMAIL */}
                         <div>
                             <input className='email-input'
                                 type='text'
@@ -86,7 +102,7 @@ const Form = (props) => {
                                 <span className='checkboxText'>Keep me up to date on news and exclusive offers</span>
                             </div>
                         </div>
-                        {/* ADDRESS */}
+                        {/* NAME */}
                         <div className='address-container'>
                             <h2 className='shippingAddress'>Shipping Address</h2>
                             <div>
@@ -101,6 +117,7 @@ const Form = (props) => {
                                     value={enteredSecondName}
                                     onChange={secondNameChangeHandler} />
                             </div>
+                            {/* ADDRESS */}
                             <div>
                                 <input className='email-input'
                                     type='text'
@@ -132,12 +149,16 @@ const Form = (props) => {
                                 <input className='country-input'
                                     type='text'
                                     placeholder='Postal Code'
+                                    value={enteredPostal}
+                                    onChange={postalChangeHandler}
                                 />
                             </div>
                             <div>
                                 <input className='email-input'
                                     type='text'
                                     placeholder='Phone Number'
+                                    value={enteredPhone}
+                                    onChange={phoneChangeHandler}
                                 />
                             </div>
                         </div>

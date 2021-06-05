@@ -12,8 +12,10 @@
   }
   
   .productList-container {
+
     display: flex;
     margin: 0rem 20rem;
+    margin-top: 5rem;
   }
   
   .image {

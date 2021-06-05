@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import './CheckOut.css';
 
 //Components
-import Cart from './ShoppingCart/ShoppingCart';
+import ShoppingCart from './ShoppingCart/ShoppingCart';
 import PageTracker from './PageTracker/PageTracker';
 import Form from './Form/Form';
 import Payment from './Payment/Payment';
 
 const prevUserData = [];
 
-const CheckOut = (props) => {
+const CheckOut = () => {
 
     //Boolean hook to define render
     const [isPayment, setIsPayment] = useState(false);
@@ -18,7 +18,6 @@ const CheckOut = (props) => {
 
     //saving data and boolean from form
     const saveIsPaymentHandler = (udata, bool) => {
-        // setIsPayment(bool);
         console.log('CHECKOUT');
         console.log(udata);
         setIsPayment(bool);
@@ -29,12 +28,10 @@ const CheckOut = (props) => {
 
     return (
         <>
-            <Cart />
-            <PageTracker />
-
+            <ShoppingCart />
+            <PageTracker amIOnPayment = {isPayment} />
             {/* Boolean to define render  */}
             {isPayment ? <Payment formData ={userData} /> : <Form goToPayment={saveIsPaymentHandler} />}
-            {/* {isPayment ? <Payment /> : <Form />} */}
         </>
     );
 };
