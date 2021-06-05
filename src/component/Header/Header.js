@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaHome, FaUser, FaShoppingCart, FaChessQueen, FaBorderNone } from "react-icons/fa";
+import { FaHome, FaUser, FaShoppingCart, FaChessQueen } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import "./Header.css";
 
@@ -75,7 +75,7 @@ const Header = (props) => {
               <Link to="/login"><FaUser></FaUser> Log In</Link>
             </li>
             <li>
-              <Link to="/checkout"><FaShoppingCart></FaShoppingCart> Check Out {props.count}</Link>
+              <Link to="/checkout"><FaShoppingCart></FaShoppingCart> Check Out</Link>
             </li>
           </ul>
         </nav>

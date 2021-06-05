@@ -26,16 +26,20 @@ const LogIn = () => {
     //check if the user info is correct
     let storedUser = JSON.parse(localStorage.getItem("user"));
 
-    //if no account stored or user info not match
-    let matchedUser = storedUser.find(elem => {
-      return (elem.name === user.name) && (elem.email === user.email) && (elem.password === user.password);
-    });
-
-    if ((localStorage.length === 0) || (matchedUser === undefined)) {
-      setError("Account doesn't exist.");
+    //if "user" key doesn't exist
+    if (!localStorage.hasOwnProperty("user")) {
+      setError("Account doesn't exist. No user key");
     } else {
-      setAuthFlag(true);
-    };
+      //if user info doesn't match
+      let matchedUser = storedUser.find(elem => {
+        return (elem.name === user.name) && (elem.email === user.email) && (elem.password === user.password);
+      });
+      if (matchedUser === undefined) {
+        setError("Account doesn't exist.");
+      } else {
+        setAuthFlag(true);
+      }
+    }
   };
 
   const logOut = () => {
