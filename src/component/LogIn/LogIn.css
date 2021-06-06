@@ -47,14 +47,14 @@
   outline: none;
   -webkit-box-shadow: none;
           box-shadow: none;
-  background-color: #8b978b54;
+  background-color: #8b978bb0;
   color: black;
   border: 0.1rem solid #757575;
 }
 
 .loginContainer .btnDiv .logOutBtn:hover,
 .loginContainer .btnDiv .goToHomeBtn:hover {
-  background-color: #8b978b54;
+  background-color: #8b978bb0;
   color: black;
   border: 0.1rem solid #757575;
 }
@@ -106,13 +106,13 @@
   outline: none;
   -webkit-box-shadow: none;
           box-shadow: none;
-  background-color: #8b978b54;
+  background-color: #8b978bb0;
   color: black;
   border: 0.1rem solid #757575;
 }
 
 .loginContainer .logInForm .submitBtn:hover {
-  background-color: #8b978b54;
+  background-color: #8b978bb0;
   color: black;
   border: 0.1rem solid #757575;
 }

@@ -105,7 +105,7 @@
   position: relative;
   height: 80vh;
   margin: 1rem;
-  background-color: #8b978b54;
+  background-color: #f0f0f0;
 }
 
 .topCollectionSection .container-fluid .row .imgCol h4 {
@@ -219,8 +219,8 @@
   text-align: center;
   width: 100%;
   padding: 1rem 0;
-  border-top: 0.1rem double #8b978b54;
-  border-bottom: 0.1rem double #8b978b54;
+  border-top: 0.1rem double #8b978bb0;
+  border-bottom: 0.1rem double #8b978bb0;
 }
 
 .designers .card-group {
