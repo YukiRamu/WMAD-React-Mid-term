@@ -270,7 +270,7 @@ const Home = () => {
                 <Card key={allDesigners[0].id} className="col">
                   <Card.Img variant="top" src="./img/zero.jpg" alt="designer0" className="designerTop" />
                   <Card.Body>
-                    <Card.Title>{allDesigners[0].name}</Card.Title>
+                    <Card.Title>Lead Designer : {allDesigners[0].name}</Card.Title>
                     <Card.Text><FaChessKing></FaChessKing> <span> Company: </span> {allDesigners[0].company.name}</Card.Text>
                     <Card.Text><FaPagelines></FaPagelines> <span> Web site: </span> {allDesigners[0].website}</Card.Text>
                     <Card.Text>

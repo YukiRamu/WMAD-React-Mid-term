@@ -19,15 +19,19 @@ const Category = (props) => {
   return (<>
     <FadeIn>
       <section className="categoryContainer">
-        <h2 className="title">{props.location.state.parameter}</h2>
+        <div className="top">
+          <h2 className="title">{props.location.state.parameter}</h2>
+          <img src="./img/photo.jpg" alt="topPhoto" className="topPhoto" />
+        </div>
         {/* looping to create html */}
         {(() => {
           return filteredProduct.map((elem, index) =>
             (index % 2 !== 0) ?
               <>
                 <Row key={elem.id} className="oddNum">
+                  <Col className="photoCol"><img src="./img/shopping.jpg" alt="photo" /></Col>
                   <Col className="titleCol">
-                    <Row>
+                    <Row className="titleRow">
                       <h3>{elem.title}</h3>
                       <p>${elem.price} CAD</p>
                       {/* Route to Detail page */}
@@ -48,7 +52,7 @@ const Category = (props) => {
                 <Row key={elem.id} className="evenNum">
                   <Col className="imgCol"><img src={elem.image} alt="productPhoto" /></Col>
                   <Col className="titleCol">
-                    <Row>
+                    <Row className="titleRow">
                       <h3>{elem.title}</h3>
                       <p>${elem.price} CAD</p>
                       {/* Route to Detail page */}
