@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {userState, useState}from 'react';
 import "./ProductDetail.css";
+import AlertComponent from "./Alert";
 import { IoCartOutline } from "react-icons/io5";
 
 
@@ -8,10 +9,15 @@ const ProductDetail = (props) => {
   console.log("state is ", props.location.state);
   console.log(props.location.state.product.image);
 
+  const [showAlert, setShowAlert] = useState(false);
+
+  const callbackfunction = (datafromchild) => {
+    setShowAlert(datafromchild)
+  }
 
   // Save a item to localStorage
   function addCart() {
-    if(localStorage.length === 0 ) {
+    if(!localStorage.hasOwnProperty("product")) {
       // console.log('hi')
       localStorage.setItem("product",JSON.stringify([props.location.state.product]));
     } else {
@@ -20,6 +26,22 @@ const ProductDetail = (props) => {
       localStorage.setItem("product",JSON.stringify(product));
     }
   }
+
+//  const AlertDismissibleExample = ()=> {
+//     if (show) {
+//       return (
+//         <Alert variant="danger" onClose={() => setShow(false)} dismissible>
+//           <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+//           <p>
+//             Change this and that and try again. Duis mollis, est non commodo
+//             luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+//             Cras mattis consectetur purus sit amet fermentum.
+//           </p>
+//         </Alert>
+//       );
+//     }
+//     return <Button onClick={() => setShow(true)}>Show Alert</Button>;
+//   }
 
 
   return (
@@ -35,7 +57,12 @@ const ProductDetail = (props) => {
             <h2>{props.location.state.product.title}</h2>
             <h6>{props.location.state.product.category}</h6>
             <h5>${props.location.state.product.price} CAD</h5>
-            <button onClick={addCart} >Add To Cart <IoCartOutline /></button>
+            {/* Ineed to add this code inside "onClick" */}
+            {/* <button onClick={addCart} >Add To Cart <IoCartOutline /></button> */}
+            <button onClick={()=>{
+              setShowAlert(true)
+            }} >Add To Cart <IoCartOutline /></button> 
+            {showAlert ? <AlertComponent callback={callbackfunction}/>  : null}
           </div>
           <div className="description">
             <h6>{props.location.state.product.title}</h6>
