@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { FaHome, FaUser, FaShoppingCart, FaChessQueen, FaBorderNone } from "react-icons/fa";
+import { FaHome, FaUser, FaShoppingCart, FaChessQueen } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import "./Header.css";
 
-const Header = (props) => {
+const Header = () => {
   const [displayStyle, setDisplay] = useState({ "display": "none" });
 
   // Toggle category link
   const toggleLink = () => {
-    console.log(displayStyle);
     if (displayStyle.display === "none") {
       setDisplay({ "display": "block" });
     } else {
@@ -19,7 +18,8 @@ const Header = (props) => {
   return (
     <>
       <header>
-        <h1 className="siteTitle"><a href="/">Lifestyle Connect</a></h1>
+        <h1 className="siteTitle"><a href="/">
+          <img src="./img/logo.jpg" alt="logo" className="logo" />Lifestyle Connect</a></h1>
 
         {/* Category cascade style links */}
         <div className="categoryPanel" style={displayStyle}>
@@ -75,7 +75,7 @@ const Header = (props) => {
               <Link to="/login"><FaUser></FaUser> Log In</Link>
             </li>
             <li>
-              <Link to="/checkout"><FaShoppingCart></FaShoppingCart> Check Out {props.count}</Link>
+              <Link to="/checkout"><FaShoppingCart></FaShoppingCart> Check Out</Link>
             </li>
           </ul>
         </nav>

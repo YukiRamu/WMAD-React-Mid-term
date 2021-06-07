@@ -105,7 +105,7 @@
   position: relative;
   height: 80vh;
   margin: 1rem;
-  background-color: #8b978b54;
+  background-color: #f0f0f0;
 }
 
 .topCollectionSection .container-fluid .row .imgCol h4 {
@@ -143,11 +143,11 @@
   height: 100%;
   width: 100%;
   margin: auto;
-  padding: 3rem;
   background-color: rgba(255, 255, 255, 0.841);
   border: 0.1rem groove #1a3a1cca;
   z-index: 10;
   color: #1a3a1cca;
+  overflow-y: auto;
 }
 
 .topCollectionSection .container-fluid .row .imgCol .imgHover div {
@@ -156,7 +156,8 @@
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 80%;
+  width: 100%;
+  margin: auto;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -164,6 +165,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.topCollectionSection .container-fluid .row .imgCol .imgHover div p {
+  text-align: justify;
 }
 
 .topCollectionSection .container-fluid .row .imgCol .imgHover div .viewMoreBtn {
@@ -197,5 +202,80 @@
   background-color: white;
   color: rgba(0, 0, 0, 0.593);
   border: 0.1rem solid #1a3a1cca;
+}
+
+.topCollectionSection .container-fluid .row .rowTwo {
+  height: 70vh;
+}
+
+/* Desingers */
+.designers {
+  margin-top: 3rem;
+}
+
+.designers .title {
+  text-transform: capitalize;
+  font-family: serif;
+  text-align: center;
+  width: 100%;
+  padding: 1rem 0;
+  border-top: 0.1rem double #8b978bb0;
+  border-bottom: 0.1rem double #8b978bb0;
+}
+
+.designers .card-group {
+  padding: 1rem 2rem;
+  grid-gap: 1rem;
+}
+
+.designers .card-group .topRow {
+  margin: auto;
+  width: 80%;
+}
+
+.designers .card-group .topRow .card {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border: none;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.designers .card-group .topRow .card .designerTop {
+  width: 30%;
+  height: 100%;
+}
+
+.designers .card-group .topRow .card .card-body .card-title {
+  font-size: 2rem;
+}
+
+.designers .card-group .topRow .card .card-body .card-text span {
+  font-weight: bold;
+}
+
+.designers .card-group .row {
+  grid-gap: 1rem;
+}
+
+.designers .card-group .row .card {
+  border: none;
+  padding: 0;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.designers .card-group .row .card .designerImg {
+  height: 70%;
+}
+
+.designers .card-group .row .card .card-body .card-title {
+  font-size: 2rem;
+}
+
+.designers .card-group .row .card .card-body .card-text span {
+  font-weight: bold;
 }
 /*# sourceMappingURL=Home.css.map */

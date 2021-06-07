@@ -14,7 +14,7 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom: 0.1rem double #8b978b54;
+  border-bottom: 0.1rem double #8b978bb0;
   position: fixed;
   top: 0;
   width: 100%;
@@ -41,15 +41,24 @@ header .siteTitle a:hover {
   color: #1a3a1cca;
 }
 
+header .siteTitle a .logo {
+  width: 55px;
+  height: 40px;
+}
+
 header .categoryPanel {
   position: absolute;
   top: 60px;
   width: 100%;
   background-color: white;
-  border-bottom: 0.1rem groove #8b978b54;
+  border-bottom: 0.1rem groove #8b978bb0;
 }
 
 header .categoryPanel .categoryLink {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
   text-decoration: none;
   padding: 1rem;
   text-align: center;

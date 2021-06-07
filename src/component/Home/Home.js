@@ -1,43 +1,42 @@
 /*  This component is for the homepage of our website  */
 import React, { useState, useEffect } from "react";
 import "./Home.css";
-import { Carousel, Container, Row, Col } from 'react-bootstrap';
+import { Carousel, Container, Row, Col, Card, CardGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import AllProducts from '../API/AllProducts';
+import AllUsers from '../API/AllUsers';
 import FadeIn from 'react-fade-in';
+import { FaRegAddressCard, FaChessKing, FaPagelines } from "react-icons/fa";
 
-const Home = (props) => {
+const Home = () => {
   /* State Hook */
   const [allProducts, setProduct] = useState([]);
+  const [allDesigners, setDesigner] = useState([]);
   const [topCollection, setTopCollection] = useState([]);//create top collection
-  const [IsDataReady, setData] = useState(false);
   const [displayStyle, setDisplay] = useState({ "display": "none" });
-  const [count,setCount] = useState(0);
-
-  const updateCheckoutProduct = (dataFromChild) => {
-    alert("clicked")
-    console.log(dataFromChild);
-  }
 
   //data fetch
   useEffect(() => {
     (async () => {
-      const data = await AllProducts();
-      setProduct(data);
+      const designerData = await AllUsers();
+      const productData = await AllProducts();
+      setDesigner(designerData);
+      setProduct(productData);
+      getTopCollection();
+      console.log(designerData);
     })();
   }, []);
 
   //prepare state hook
   useEffect(() => {
     getTopCollection();
-    setData(true);
   }, [allProducts]);
 
   /* Top Collection - randomly show four items */
   const getTopCollection = () => {
     let copiedProps = allProducts.slice();
     let selectedTopPicks = [];
-    while ((selectedTopPicks.length < 4) && (copiedProps.length > 0)) {
+    while ((selectedTopPicks.length < 5) && (copiedProps.length > 0)) {
       selectedTopPicks.push(copiedProps[Math.floor(Math.random() * copiedProps.length)]);//randomly push 
       copiedProps.splice(Math.floor(Math.random() * copiedProps.length), 1); //delete the target
     }
@@ -59,7 +58,7 @@ const Home = (props) => {
 
   return (
     <>
-      {(IsDataReady) ? (
+      {((!allProducts.length == 0) && (!allDesigners.length == 0)) ? (
         //when data is ready
         <>
           {/* Hero Contents */}
@@ -190,6 +189,7 @@ const Home = (props) => {
             {topCollection.length !== 0 ? (
               <FadeIn>
                 <Container fluid>
+                  {/* Title and first element only */}
                   <Row>
                     <Col
                       className="titleCol"
@@ -228,73 +228,80 @@ const Home = (props) => {
                     </Col>
                   </Row>
 
-                  <Row>
-                    <Col className="imgCol">
-                      <h4>{topCollection[1].title}</h4>
-                      <img src={topCollection[1].image} alt="item2" className="topCollectionImg" onClick={showDescription} />
-                      <div className="imgHover" style={displayStyle}>
-                        <Row>
-                          <p>{topCollection[1].description}</p>
-                          {/* Route to Detail page */}
-                          <Link
-                            to={{
-                              pathname: "/productDetail",
-                              state: {
-                                product: topCollection[1],
-                              },
-                            }}
-                            className="viewMoreBtn">View more</Link>
-                          <button type="button" className="closeBtn" onClick={hideDescription}>Close</button>
-                        </Row>
-                      </div>
-                    </Col>
-                    <Col className="imgCol">
-                      <h4>{topCollection[2].title}</h4>
-                      <img src={topCollection[2].image} alt="item3" className="topCollectionImg" onClick={showDescription} />
-                      <div className="imgHover" style={displayStyle}>
-                        <Row>
-                          <p>{topCollection[2].description}</p>
-                          {/* Route to Detail page */}
-                          <Link
-                            to={{
-                              pathname: "/productDetail",
-                              state: {
-                                product: topCollection[2],
-                              },
-                            }}
-                            className="viewMoreBtn">View more</Link>
-                          <button type="button" className="closeBtn" onClick={hideDescription}>Close</button>
-                        </Row>
-                      </div>
-                    </Col>
-                    <Col className="imgCol">
-                      <h4>{topCollection[3].title}</h4>
-                      <img src={topCollection[3].image} alt="item4" className="topCollectionImg" onClick={showDescription} />
-                      <div className="imgHover" style={displayStyle}>
-                        <Row>
-                          <p>{topCollection[3].description}</p>
-                          {/* Route to Detail page */}
-                          <Link
-                            to={{
-                              pathname: "/productDetail",
-                              state: {
-                                product: topCollection[3],
-                              },
-                            }}
-                            className="viewMoreBtn">View more</Link>
-                          <button type="button" className="closeBtn" onClick={hideDescription}>Close</button>
-                        </Row>
-                      </div>
-                    </Col>
-                  </Row>
+                  {/* Top Collection : second to last elements : looping */}
+                  {(() => {
+                    const html = [];
+                    for (let i = 1; i < topCollection.length; i++) {
+                      html.push(
+                        <Col className="imgCol rowTwo" key={topCollection[i].id}>
+                          <h4>{topCollection[i].title}</h4>
+                          <img src={topCollection[i].image} alt="itemPhoto" className="topCollectionImg" onClick={showDescription} />
+                          <div className="imgHover" style={displayStyle}>
+                            <Row>
+                              <p>{topCollection[i].description}</p>
+                              {/* Route to Detail page */}
+                              <Link
+                                to={{
+                                  pathname: "/productDetail",
+                                  state: {
+                                    product: topCollection[i],
+                                  },
+                                }}
+                                className="viewMoreBtn">View more</Link>
+                              <button type="button" className="closeBtn" onClick={hideDescription}>Close</button>
+                            </Row>
+                          </div>
+                        </Col>
+                      );
+                    }
+                    return <Row>{html}</Row>;
+                  })()}
                 </Container>
               </FadeIn>
             ) : ""}
           </section>
 
-          {/* Brand Highlight */}
-          <section className="brandHighlight">
-            <img src="" alt="" />
+          {/* Desinger */}
+          <section className="designers">
+            <h2 className="title">Our Designers</h2>
+            <CardGroup>
+              {/* first ppl */}
+              <Row className="topRow">
+                <Card key={allDesigners[0].id} className="col">
+                  <Card.Img variant="top" src="./img/zero.jpg" alt="designer0" className="designerTop" />
+                  <Card.Body>
+                    <Card.Title>Lead Designer : {allDesigners[0].name}</Card.Title>
+                    <Card.Text><FaChessKing></FaChessKing> <span> Company: </span> {allDesigners[0].company.name}</Card.Text>
+                    <Card.Text><FaPagelines></FaPagelines> <span> Web site: </span> {allDesigners[0].website}</Card.Text>
+                    <Card.Text>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae culpa earum libero porro, modi ipsum laudantium quasi quod pariatur.
+                    </Card.Text>
+                    <Card.Text><FaRegAddressCard></FaRegAddressCard> <span> Contacts: </span> {allDesigners[0].email}</Card.Text>
+                  </Card.Body>
+                </Card>
+              </Row>
+              {/* next four ppl */}
+              {(() => {
+                let html = [];
+                for (let i = 1; i < 5; i++) {
+                  html.push(
+                    <Card key={allDesigners[i].id} className="col">
+                      <Card.Img variant="top" src={`./img/designer${i}.jpg`} alt={`designer${i}`} className="designerImg" />
+                      <Card.Body>
+                        <Card.Title>{allDesigners[i].name}</Card.Title>
+                        <Card.Text><FaChessKing></FaChessKing> <span> Company: </span>{allDesigners[i].company.name}</Card.Text>
+                        <Card.Text><FaPagelines></FaPagelines> <span> Web site: </span>{allDesigners[i].website}</Card.Text>
+                        <Card.Text>
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae culpa earum libero porro, modi ipsum laudantium quasi quod pariatur.
+                        </Card.Text>
+                        <Card.Text><FaRegAddressCard></FaRegAddressCard> <span> Contacts: </span>{allDesigners[i].email}</Card.Text>
+                      </Card.Body>
+                    </Card>
+                  );
+                }
+                return <Row>{html}</Row>;
+              })()}
+            </CardGroup>
           </section>
         </>
       ) : <h1 className="loading">Loading.... Hang on a sec....</h1>}

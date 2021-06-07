@@ -2,52 +2,76 @@ import React, { useState, useEffect } from "react";
 import "./Category.css";
 import FilterByCategory from '../API/FilterByCategory';
 import { Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import FadeIn from 'react-fade-in';
 
 const Category = (props) => {
   const [filteredProduct, setFilteredProduct] = useState([]);
-  const [IsDataReady, setData] = useState(false);
-
-  console.log(props.location);
 
   //prepare state hook
   useEffect(() => {
-    let isMounted = true; //mutable flag
     (async () => {
       const data = await FilterByCategory(props.location.state.parameter);
-      if (isMounted) setFilteredProduct(data); setData(true);
-      console.log(data);
+      setFilteredProduct(data);
     })();
-  }, []);
+  }, [props.location.state.parameter]);
 
-  return (
-    <>
-      {(IsDataReady) ? (
-        //when data is ready
-        <>
-          <section className="categoryContainer">
-            <h2 className="title">{props.location.state.parameter}</h2>
-            <Row>
-              <Col className="imgCol"><img src={filteredProduct[0].image} alt="productPhoto" /></Col>
-              <Col className="titleCol">
-                <Row>
-                  <h3>{filteredProduct[0].title}</h3>
-                  <p>CAD {filteredProduct[0].price}</p>
+  return (<>
+    <FadeIn>
+      <section className="categoryContainer">
+        <div className="top">
+          <h2 className="title">{props.location.state.parameter}</h2>
+          <img src="./img/photo.jpg" alt="topPhoto" className="topPhoto" />
+        </div>
+        {/* looping to create html */}
+        {(() => {
+          return filteredProduct.map((elem, index) =>
+            (index % 2 !== 0) ?
+              <>
+                <Row key={elem.id} className="oddNum">
+                  <Col className="photoCol"><img src="./img/shopping.jpg" alt="photo" /></Col>
+                  <Col className="titleCol">
+                    <Row className="titleRow">
+                      <h3>{elem.title}</h3>
+                      <p>${elem.price} CAD</p>
+                      {/* Route to Detail page */}
+                      <Link
+                        to={{
+                          pathname: "/productDetail",
+                          state: {
+                            product: elem,
+                          },
+                        }}
+                        className="viewMoreBtn">View more</Link>
+                    </Row>
+                  </Col>
+                  <Col className="imgCol"><img src={elem.image} alt="productPhoto" /></Col>
                 </Row>
-              </Col>
-            </Row>
-            <Row>
-              <Col className="titleCol">
-                <Row>
-                  <h3>{filteredProduct[1].title}</h3>
-                  <p>CAD {filteredProduct[1].price}</p>
+              </>
+              : <>
+                <Row key={elem.id} className="evenNum">
+                  <Col className="imgCol"><img src={elem.image} alt="productPhoto" /></Col>
+                  <Col className="titleCol">
+                    <Row className="titleRow">
+                      <h3>{elem.title}</h3>
+                      <p>${elem.price} CAD</p>
+                      {/* Route to Detail page */}
+                      <Link
+                        to={{
+                          pathname: "/productDetail",
+                          state: {
+                            product: elem,
+                          },
+                        }}
+                        className="viewMoreBtn">View more</Link>
+                    </Row>
+                  </Col>
                 </Row>
-              </Col>
-              <Col className="imgCol"><img src={filteredProduct[1].image} alt="productPhoto" /></Col>
-            </Row>
-          </section>
-        </>) : <h1 className="loading">Loading.... Hang on a sec....</h1>}
-    </>
-  );
+              </>);
+        })()}
+      </section>
+    </FadeIn>
+  </>);
 };
 
 export default Category;

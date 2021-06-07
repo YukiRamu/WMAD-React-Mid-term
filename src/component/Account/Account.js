@@ -17,8 +17,10 @@ const Account = () => {
     if ((newAccount.name === "") || (newAccount.email === "") || (newAccount.password === "")) {
       setError("Please enter name, email and password");
     } else {
+      console.log(localStorage)
       //create a new account
-      if (localStorage.length === 0) {
+      if (!localStorage.hasOwnProperty("user")) {
+        console.log("no user key")
         //no account is stored
         localStorage.setItem("user", JSON.stringify([newAccount]));
       } else {
