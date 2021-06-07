@@ -58,6 +58,9 @@
   .trashBin {
     width: 12.25px;
     height: 14px;
-    background-color: gray;
-    margin: 1.4rem;
+    margin: auto;
+  }
+
+  .trashBin:hover{
+    cursor: pointer;
   }

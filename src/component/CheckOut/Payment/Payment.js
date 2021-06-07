@@ -18,16 +18,20 @@ const Payment = (props) => {
     const setShipValue = (shipmentValue) => {
         console.log('Payment component');
         console.log(shipmentValue);
+        setTotal(cartValue + shippingMehodValue);
         setShippingMehodValue(shipmentValue);
-        setTotal(cartValue + (shippingMehodValue) );
+    }
+
+    const changeBtn = () => {
+        props.back(false)
     }
 
     return (
         <>
             <div className='payment-container'>
                 <form>
-                    <ShippingAddress showData = {checkOutData}/>
-                    <ShippingMethod getValue = {setShipValue} />
+                    <ShippingAddress showData={checkOutData} change = {changeBtn} />
+                    <ShippingMethod getValue={setShipValue} />
                     <PaymentMethod />
                     <BillingAddress />
                 </form>
@@ -41,18 +45,18 @@ const Payment = (props) => {
                         </div>
                         {/* PASSAR ESSA PARTE PARA PAYMENT */}
                         <div className='subtotal-container'>
-                        <p className='subtotal'>Shipping:</p>
-                        <span className='money'>${shippingMehodValue}</span>
-                    </div>
-                    <hr></hr>
-                    <div className='subtotal-container'>
-                        <p className='subtotal'>Total:</p>
-                        <span className='total-money'>
-                            <span className='currency'>CAD</span>
+                            <p className='subtotal'>Shipping:</p>
+                            <span className='money'>${shippingMehodValue}</span>
+                        </div>
+                        <hr></hr>
+                        <div className='subtotal-container'>
+                            <p className='subtotal'>Total:</p>
+                            <span className='total-money'>
+                                <span className='currency'>CAD</span>
                             ${total}</span>
-                    </div>
-                        <button  id='payNow' className='proceed-btn'>Pay now</button>
-                        
+                        </div>
+                        <button id='payNow' className='proceed-btn'>Pay now</button>
+
                     </div>
                 </div>
             </div>

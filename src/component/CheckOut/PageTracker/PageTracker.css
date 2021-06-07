@@ -21,18 +21,13 @@
   padding-right: 1rem;
 }
 
-#ship:hover{
+/* #ship:hover{
   cursor: pointer;
   text-decoration: underline;
-}
+} */
 
 #pay {
   color: gray;
-}
-
-#pay:hover{
-  cursor: pointer;
-  text-decoration: underline;
 }
 
 /* ON PAYMENT */
@@ -40,4 +35,13 @@
 #ship2 {
   border-left: 1px solid gray;
   padding-left: 1rem;
+}
+
+#pay2 {
+  color: gray;
+}
+
+#pay2:hover{
+  cursor: pointer;
+  text-decoration: underline;
 }

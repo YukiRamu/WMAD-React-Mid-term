@@ -70,13 +70,6 @@ const Form = (props) => {
             console.log("Your are in Handler");
             console.log(formData);
             props.goToPayment(formData, true);
-
-            setEnteredEmail('');
-            setEnteredFirst('');
-            setEnteredSecond('');
-            setEnteredAddress('');
-            setEnteredCity('');
-            setEnteredProvince('');
         }
     };
 

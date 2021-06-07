@@ -1,11 +1,31 @@
-import React, {useEffect, useState} from 'react';
+import { useState } from 'react';
 import './Summary.css'
 
-const Summary = (props) => {
+const Summary = () => {
 
-    // const paymentProceedHandler = (bool) =>{
-    //     props.onClickGetBool(bool)
+    const productsInCart = [JSON.parse(localStorage.getItem('product'))];
+    const [total, setTotal] = useState('');
+
+    const totalPrices = productsInCart[0].price;
+    console.log('PRICES')
+    console.log(totalPrices);
+
+    const totalCartPrice = (p) => {
+        for (i = 0; i <= p.length; i++){
+            let productPrice = [p.price];
+            console.log('total');
+            console.log(productPrice);
+            let total = +productPrice;
+            return total;
+        }
+    }
+    // const totalCartPrice = (p) => {
+    //     return(
+    //         totalPrices.map(price => p)
+    //     )
     // }
+
+    console.log(totalCartPrice(totalPrices))
 
     return (
         <>
@@ -14,7 +34,7 @@ const Summary = (props) => {
                 <h4 className='summary-text'>Summary</h4>
                 <div className='subtotal-container'>
                     <p className='subtotal'>Subtotal:</p>
-                    <span className='money'>$700.00</span>
+                    <span className='money'>{totalCartPrice}</span>
                 </div>
                 {/* PASSAR ESSA PARTE PARA PAYMENT */}
                 {/* <div className='subtotal-container'>
