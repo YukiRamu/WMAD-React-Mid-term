@@ -10,22 +10,22 @@ const Summary = () => {
     console.log('PRICES')
     console.log(totalPrices);
 
-    const totalCartPrice = (p) => {
-        for (i = 0; i <= p.length; i++){
-            let productPrice = [p.price];
-            console.log('total');
-            console.log(productPrice);
-            let total = +productPrice;
-            return total;
-        }
-    }
+    // const totalCartPrice = (i) => {
+    //     for (i = 0; i <= i.length; i++){
+    //         let productPrice = [i.price];
+    //         console.log('total');
+    //         console.log(productPrice);
+    //         let total = +productPrice;
+    //         return total;
+    //     }
+    // }
     // const totalCartPrice = (p) => {
     //     return(
     //         totalPrices.map(price => p)
     //     )
     // }
 
-    console.log(totalCartPrice(totalPrices))
+    // console.log(totalCartPrice(totalPrices))
 
     return (
         <>
@@ -34,7 +34,7 @@ const Summary = () => {
                 <h4 className='summary-text'>Summary</h4>
                 <div className='subtotal-container'>
                     <p className='subtotal'>Subtotal:</p>
-                    <span className='money'>{totalCartPrice}</span>
+                    <span className='money'></span>
                 </div>
                 {/* PASSAR ESSA PARTE PARA PAYMENT */}
                 {/* <div className='subtotal-container'>
