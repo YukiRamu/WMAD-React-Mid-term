@@ -23,7 +23,6 @@ const Home = () => {
       setDesigner(designerData);
       setProduct(productData);
       getTopCollection();
-      console.log(designerData);
     })();
   }, []);
 
