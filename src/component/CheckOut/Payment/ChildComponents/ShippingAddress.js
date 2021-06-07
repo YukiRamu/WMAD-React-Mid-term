@@ -1,8 +1,12 @@
 const ShippingAddress = (props) => {
 
     console.log("IN SHIPPING ADDRES");
-    console.log(props.showData);
-    console.log(props.showData[0].firstName);
+    // console.log(props.showData);
+    // console.log(props.showData[0].firstName);
+
+    const changeBtnGoBack = () =>{
+        props.changeBtn(false)
+    }
 
     return (
         <>
@@ -12,7 +16,7 @@ const ShippingAddress = (props) => {
                 <div className='payment-contact'>
                     <span className='payment-contactText'>Email</span>
                     <p className='payment-addressText'> {props.showData[0].email} </p>
-                    <button className='change-btn'>Change</button>
+                    <button onClick={changeBtnGoBack} className='change-btn'>Change</button>
                 </div>
                 <div id='shipTo-address' className='payment-contact'>
                     <span className='payment-contactText'>Ship to</span>
