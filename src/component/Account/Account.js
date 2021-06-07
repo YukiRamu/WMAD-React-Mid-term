@@ -22,7 +22,7 @@ const Account = () => {
         //no account is stored
         localStorage.setItem("user", JSON.stringify([newAccount]));
       } else {
-        //check if the same account already exists
+        //check if the same accounta already exist
         let user = JSON.parse(localStorage.getItem("user"));
         //pattern 1 : name and email match
         let nameEmailMatch = user.find(elem => {
