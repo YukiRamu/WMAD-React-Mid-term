@@ -17,10 +17,8 @@ const Account = () => {
     if ((newAccount.name === "") || (newAccount.email === "") || (newAccount.password === "")) {
       setError("Please enter name, email and password");
     } else {
-      console.log(localStorage)
       //create a new account
       if (!localStorage.hasOwnProperty("user")) {
-        console.log("no user key")
         //no account is stored
         localStorage.setItem("user", JSON.stringify([newAccount]));
       } else {
@@ -30,7 +28,7 @@ const Account = () => {
         let nameEmailMatch = user.find(elem => {
           return (elem.name === newAccount.name) && (elem.email === newAccount.email);
         });
-        //pattern 2 : and email match
+        //pattern 2 : email match
         let emailMatch = user.find(elem => elem.email === newAccount.email);
 
         if (nameEmailMatch === undefined) {
@@ -62,7 +60,7 @@ const Account = () => {
                   to={"/home"}
                   className="col goToHomeBtn">
                   go to store
-            </Link>
+                </Link>
               </FadeIn>
             </>
           ) : (
